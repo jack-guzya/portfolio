@@ -24,19 +24,19 @@ const Nav: React.FC = () => {
     ),
     trigger: classnames(
       s.trigger,
-      { [s.show]: isShow },
+      { [s.active]: isShow },
     ),
   };
 
   return (
-    <>
+    <div className={s.navigation}>
       <button className={classes.trigger} type="button" onClick={handleTrigger} />
       <nav className={classes.container}>
         <ul className={s.list}>
           {list.map((item) => <li key={item}>{item}</li>)}
         </ul>
       </nav>
-    </>
+    </div>
   );
 };
 
