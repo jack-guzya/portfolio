@@ -13,6 +13,7 @@ const Nav: React.FC = () => {
     'Home',
     'About',
     'Skills',
+    'Experience',
     'Works',
     'Contacts',
   ];
