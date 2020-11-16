@@ -8,8 +8,12 @@ type TProps = {
 
 const Nav: React.FC<TProps> = ({ list }) => {
   const [isActive, setTriggerState] = useState<boolean>(false);
+  const [isMount, setMountState] = useState<boolean>(false);
 
-  const handleTrigger = () => setTriggerState(!isActive);
+  const handleTrigger = () => {
+    setTriggerState(!isActive);
+    !isActive && setMountState(true);
+  };
 
   const classes = {
     container: classnames(s.container, { [s.show]: isActive }),
@@ -19,15 +23,17 @@ const Nav: React.FC<TProps> = ({ list }) => {
   return (
     <div className={s.navigation}>
       <button className={classes.trigger} type="button" onClick={handleTrigger} />
-      <nav className={classes.container}>
-        <ul className={s.list}>
-          {list.map((item) => (
-            <li key={item} className={s.item}>
-              {item}
-            </li>
-          ))}
-        </ul>
-      </nav>
+      {isMount && (
+        <nav className={classes.container} onAnimationEnd={() => !isActive && setMountState(false)}>
+          <ul className={s.list}>
+            {list.map((item) => (
+              <li key={item} className={s.item}>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </nav>
+      )}
     </div>
   );
 };

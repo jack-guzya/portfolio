@@ -1,7 +1,6 @@
 .navigation {
   position: relative;
   display: flex;
-  justify-content: flex-end;
 }
 
 .trigger {
@@ -23,9 +22,9 @@
 .container {
   z-index: -1;
   position: absolute;
-  top: -20%;
-  opacity: 0;
-  transition-duration: var(--transition-primary);
+  animation-name: hide;
+  animation-duration: var(--transition-primary);
+  animation-fill-mode: forwards;
   text-align: center;
   width: 100%;
 }
@@ -48,13 +47,11 @@
 }
 
 .container.show {
-  top: 0;
-  opacity: 1;
-  backdrop-filter: blur(2px);
+  animation-name: show;
 }
 
 .container::after {
-  content: "";
+  content: '';
   display: block;
   transition-duration: var(--transition-primary);
   margin: 0 auto;
@@ -67,11 +64,34 @@
   width: 90%;
 }
 
-@media screen and (min-width: 768px) {
-  .container {
+@keyframes hide {
+  from {
     top: 0;
+    opacity: 1;
+    backdrop-filter: blur(2px);
   }
 
+  to {
+    top: -20%;
+    opacity: 0;
+    backdrop-filter: blur(0px);
+  }
+}
+
+@keyframes show {
+  from {
+    top: -20%;
+    opacity: 0;
+    backdrop-filter: blur(0px);
+  }
+  to {
+    top: 0;
+    opacity: 1;
+    backdrop-filter: blur(2px);
+  }
+}
+
+@media screen and (min-width: 768px) {
   .list {
     flex-direction: row;
     justify-content: center;
