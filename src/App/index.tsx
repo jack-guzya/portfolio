@@ -3,6 +3,7 @@ import React from 'react';
 import Nav from '../components/Navigation';
 import Home from '../components/Home';
 import About from '../components/About';
+import Parallax from '../common/Parallax';
 
 import s from './App.module.css';
 
@@ -13,8 +14,15 @@ function App() {
         <Nav list={['Home', 'About', 'Skills', 'Experience', 'Works', 'Contacts']} />
       </header>
       <main>
-        <Home />
-        <About />
+        <Parallax
+          back={() => <div className={s.bg} />}
+          base={() => (
+            <>
+              <Home />
+              <About />
+            </>
+          )}
+        />
       </main>
     </>
   );
