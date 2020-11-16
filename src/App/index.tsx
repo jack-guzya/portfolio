@@ -9,7 +9,7 @@ function App() {
   return (
     <>
       <header className={s.header}>
-        <Nav />
+        <Nav list={['Home', 'About', 'Skills', 'Experience', 'Works', 'Contacts']} />
       </header>
       <main>
         <Home />

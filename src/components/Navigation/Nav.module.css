@@ -1,5 +1,8 @@
 .navigation {
   position: relative;
+  display: flex;
+  justify-content: flex-end;
+  margin: 10px;
 }
 
 .trigger {
@@ -20,12 +23,24 @@
 .container {
   z-index: -1;
   position: absolute;
+  top: -20%;
+  opacity: 0;
+  transition-duration: var(--transition-primary);
+  text-align: center;
   width: 100%;
+  height: 0;
 }
 
 .list {
+  display: flex;
+  flex-direction: column;
   padding: 0;
+  margin: 10px;
   list-style-type: none;
+}
+
+.item {
+  margin: 7px;
 }
 
 .active,
@@ -33,15 +48,11 @@
   border-color: var(--color-secondary);
 }
 
-.container {
-  transition-duration: var(--transition-primary);
-  top: 0;
-  opacity: 0;
-}
-
 .container.show {
-  top: 100%;
+  top: 0;
   opacity: 1;
+  height: 100%;
+  backdrop-filter: blur(1px);
 }
 
 .container::after {
@@ -55,5 +66,16 @@
 }
 
 .container.show::after {
-  width: 100%;
+  width: 90%;
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    top: 0;
+  }
+
+  .list {
+    flex-direction: row;
+    justify-content: center;
+  }
 }

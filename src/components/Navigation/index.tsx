@@ -2,31 +2,18 @@ import React, { useState } from 'react';
 import classnames from 'classnames';
 import s from './Nav.module.css';
 
-const Nav: React.FC = () => {
-  const [isShow, changeDisplay] = useState<boolean>(false);
+type TProps = {
+  list: Array<string>;
+};
 
-  const handleTrigger = () => {
-    changeDisplay(!isShow);
-  };
+const Nav: React.FC<TProps> = ({ list }) => {
+  const [isActive, setTriggerState] = useState<boolean>(false);
 
-  const list = [
-    'Home',
-    'About',
-    'Skills',
-    'Experience',
-    'Works',
-    'Contacts',
-  ];
+  const handleTrigger = () => setTriggerState(!isActive);
 
   const classes = {
-    container: classnames(
-      s.container,
-      { [s.show]: isShow },
-    ),
-    trigger: classnames(
-      s.trigger,
-      { [s.active]: isShow },
-    ),
+    container: classnames(s.container, { [s.show]: isActive }),
+    trigger: classnames(s.trigger, { [s.active]: isActive }),
   };
 
   return (
@@ -34,7 +21,11 @@ const Nav: React.FC = () => {
       <button className={classes.trigger} type="button" onClick={handleTrigger} />
       <nav className={classes.container}>
         <ul className={s.list}>
-          {list.map((item) => <li key={item}>{item}</li>)}
+          {list.map((item) => (
+            <li key={item} className={s.item}>
+              {item}
+            </li>
+          ))}
         </ul>
       </nav>
     </div>

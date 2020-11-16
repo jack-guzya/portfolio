@@ -5,7 +5,9 @@
   --color-secondary: #fffb00;
   --color-bg: #000;
 
-  --transition-primary: 0.5s
+  --transition-primary: 0.5s;
+
+  --md-screen: 768px;
 }
 
 body {
