@@ -1,0 +1,6 @@
+.title {
+  box-sizing: border-box;
+  padding-left: 5px;
+  font-size: 3em;
+  color: var(--color-third);
+}
