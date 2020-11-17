@@ -6,9 +6,13 @@ const Home: React.FC = () => {
   return (
     <section
       className={s.container}
-      onMouseMove={cursorParallax({ translateY: -50, translateX: -50, coefficient: 0.1 })}
+      onMouseMove={cursorParallax(
+        { translateY: 0, translateX: 0, coefficient: 0.2 },
+        { translateY: 0, translateX: 0, coefficient: 0.1 },
+      )}
     >
       <h2 className={s.title}>Hi, my Friend!</h2>
+      <h2>I am Evgeniy!</h2>
     </section>
   );
 };
