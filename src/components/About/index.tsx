@@ -1,21 +1,18 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import Title from '../../common/Title';
 import s from './About.module.css';
-import useScroll from '../../common/hooks/use-scroll';
+import { useScrollEndpoint } from '../../common/hooks/use-scroll';
 
 interface IAboutProps {
   viewport?: HTMLDivElement | null;
 }
 
 const About: React.FC<IAboutProps> = ({ viewport }) => {
-  const detailsRef = useRef<HTMLParagraphElement | null>(null);
-
-  const handleScroll = (e: Event) => {
-    const view = e.currentTarget as typeof viewport;
-    console.log(view?.clientHeight);
-    console.log(detailsRef.current?.getBoundingClientRect().y);
-  };
-  useScroll(viewport, handleScroll);
+  const ref = useScrollEndpoint(viewport, {
+    endPoint: 1,
+    cb: () => console.log('CALLBACK LOWER'),
+    upperCb: () => console.log('Callback upper'),
+  });
 
   return (
     <section className={s.wrapper}>
@@ -26,7 +23,7 @@ const About: React.FC<IAboutProps> = ({ viewport }) => {
           dolores distinctio ducimus molestias quidem totam, vitae corrupti fugit porro voluptatem
           repellendus dolore tempore, quasi nesciunt, ullam accusantium.
         </p>
-        <p className={s.details} ref={detailsRef}>
+        <p className={s.details} ref={ref}>
           Lorem ipsum, dolor sit amet consectetur adipisicing elit. Est laudantium quaerat sed
           dolores distinctio ducimus molestias quidem totam, vitae corrupti fugit porro voluptatem
           repellendus dolore tempore, quasi nesciunt, ullam accusantium.

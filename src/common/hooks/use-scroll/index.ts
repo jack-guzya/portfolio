@@ -1,14 +1,6 @@
-import { useEffect } from 'react';
+import useScroll from './use-scroll';
+import useScrollEndpoint from './use-scroll-endpoint';
 
-const useScroll = <T extends EventListenerOrEventListenerObject>(
-  viewport: HTMLDivElement | null | undefined,
-  handleScroll: T,
-) => {
-  useEffect(() => {
-    viewport?.addEventListener('scroll', handleScroll);
-
-    return () => viewport?.removeEventListener('scroll', handleScroll);
-  });
-};
+export { useScroll, useScrollEndpoint };
 
 export default useScroll;
