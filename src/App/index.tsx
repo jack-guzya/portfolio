@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 // Components
 import Nav from '../components/Navigation';
 import Home from '../components/Home';
@@ -16,10 +16,10 @@ function App() {
       <main>
         <Parallax
           back={() => <div className={s.bg} />}
-          base={() => (
+          base={(parent) => (
             <>
               <Home />
-              <About />
+              <About viewport={parent} />
             </>
           )}
         />
