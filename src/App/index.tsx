@@ -1,9 +1,9 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 // Components
 import Nav from '../components/Navigation';
 import Home from '../components/Home';
 import About from '../components/About';
-import Parallax from '../common/Parallax';
+import Parallax, { Back, Base, Group } from '../common/Parallax';
 
 import s from './App.module.css';
 
@@ -14,15 +14,23 @@ function App() {
         <Nav list={['Home', 'About', 'Skills', 'Experience', 'Works', 'Contacts']} />
       </header>
       <main>
-        <Parallax
-          back={() => <div className={s.bg} />}
-          base={(parent) => (
+        <Parallax>
+          {(parent) => (
             <>
-              <Home />
-              <About viewport={parent} />
+              <Group style={{ zIndex: 3 }}>
+                <Back className={s.bg} />
+                <Base className={s.home}>
+                  <Home />
+                </Base>
+              </Group>
+              <Group style={{ zIndex: 4 }}>
+                <Base className={s.about}>
+                  <About viewport={parent} />
+                </Base>
+              </Group>
             </>
           )}
-        />
+        </Parallax>
       </main>
     </>
   );

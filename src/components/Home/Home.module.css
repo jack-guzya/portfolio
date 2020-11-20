@@ -3,7 +3,6 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background: linear-gradient(#00000000 95%, var(--color-bg) 100%);
 }
 
 .title {

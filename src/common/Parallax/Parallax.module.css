@@ -1,8 +1,14 @@
 .container {
-  perspective: 1px;
+  perspective: 300px;
   height: 100vh;
   overflow-y: auto;
   overflow-x: hidden;
+}
+
+.group {
+  position: relative;
+  height: 100vh;
+  transform-style: preserve-3d;
 }
 
 .layer {
@@ -14,11 +20,13 @@
 }
 
 .layer--base {
+  z-index: 4;
   transform: translateZ(0);
 }
 
 .layer--back {
-  transform: translateZ(-1px) scale(2);
+  z-index: 3;
+  transform: translateZ(-300px) scale(2);
 }
 
 .container::-webkit-scrollbar {

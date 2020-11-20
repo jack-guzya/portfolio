@@ -3,25 +3,44 @@ import classnames from 'classnames';
 import useCallbackRef from '../hooks/use-callback-ref';
 import s from './Parallax.module.css';
 
-interface IParallaxProps<P>
-  extends React.DetailedHTMLProps<React.HTMLAttributes<P>, P> {
-  back: (ref: P | null) => React.ReactNode;
-  base: (ref: P | null) => React.ReactNode;
+interface IParallax<P> extends React.DetailedHTMLProps<React.HTMLAttributes<P>, P> {}
+interface IParallaxContainer<P> extends IParallax<P> {
+  children: <E extends HTMLElement>(parent: E) => React.ReactNode;
 }
 
-const Parallax: React.FC<IParallaxProps<HTMLDivElement>> = ({ back, base, ...props }) => {
+const Parallax: React.FC<IParallaxContainer<HTMLDivElement>> = ({
+  children,
+  className = '',
+  ...props
+}) => {
   const [parent, callbackRef] = useCallbackRef<HTMLDivElement>();
+  const CSSClass = classnames(s.container, { [className]: !!className });
 
   return (
-    <div className={s.container} ref={callbackRef} {...props}>
-      {parent && (
-        <>
-          <div className={classnames(s.layer, s['layer--back'])}>{back(parent)}</div>
-          <div className={classnames(s.layer, s['layer--base'])}>{base(parent)}</div>
-        </>
-      )}
+    <div className={CSSClass} ref={callbackRef} {...props}>
+      {parent && children(parent)}
     </div>
   );
 };
 
+const createParallaxChild = (...classes: Array<string>): React.FC<IParallax<HTMLDivElement>> => ({
+  children,
+  className = '',
+  ...props
+}) => {
+  const CSSClass = classnames(...classes, { [className]: !!className });
+
+  return (
+    <div className={CSSClass} {...props}>
+      {children}
+    </div>
+  );
+};
+
+const Group = createParallaxChild(s.group);
+const Base = createParallaxChild(s.layer, s['layer--base']);
+const Back = createParallaxChild(s.layer, s['layer--back']);
+
 export default Parallax;
+
+export { Back, Base, Group };

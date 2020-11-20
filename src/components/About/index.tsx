@@ -3,11 +3,7 @@ import Title from '../../common/Title';
 import s from './About.module.css';
 import { useScrollEndpoint } from '../../common/hooks/use-scroll';
 
-interface IAboutProps {
-  viewport?: HTMLDivElement | null;
-}
-
-const About: React.FC<IAboutProps> = ({ viewport }) => {
+const About = <E extends HTMLElement>({ viewport }: { viewport: E }) => {
   const ref = useScrollEndpoint(viewport, {
     endPoint: 1,
     cb: () => console.log('CALLBACK LOWER'),

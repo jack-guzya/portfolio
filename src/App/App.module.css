@@ -10,8 +10,16 @@
   position: absolute;
   width: 100%;
   height: 100vh;
-  background-image: url(../components//Home//assets/bg.jpg);
   background-repeat: no-repeat;
   background-size: cover;
+  background-image: url(../components//Home//assets/bg.jpg);
   filter: grayscale(1);
+}
+
+.about {
+  background-color: var(--color-bg);
+}
+
+.home {
+  background: linear-gradient(#00000000 95%, var(--color-bg) 100%);
 }

@@ -38,8 +38,8 @@ const handleScrollEndpoint = <E extends HTMLElement, C extends Function, U exten
   };
 };
 
-const useScrollEndpoint = <C extends Function, U extends Function>(
-  viewport: TViewport,
+const useScrollEndpoint = <V extends HTMLElement, C extends Function, U extends Function>(
+  viewport: V | null,
   options: TOptions<C, U>,
 ) => {
   const ref = useRef(null);
