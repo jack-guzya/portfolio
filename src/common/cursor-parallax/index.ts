@@ -1,14 +1,14 @@
 type TCoords = {
-  width: number;
-  height: number;
-  clientX: number;
-  clientY: number;
+  elemWidth: number;
+  elemHeight: number;
+  cursorX: number;
+  cursorY: number;
 };
 
 type TElemPosition = {
-  translateX: number;
-  translateY: number;
-  coefficient: number;
+  translateX?: number;
+  translateY?: number;
+  coefficient?: number;
 };
 
 type TCursorPosition = {
@@ -16,12 +16,40 @@ type TCursorPosition = {
   y: number;
 };
 
-const getCursorOffset = ({ width, height, clientX, clientY }: TCoords): TCursorPosition => ({
-  x: width / 2 - clientX,
-  y: height / 2 - clientY,
+type TElemOffset = TElemPosition &
+TCursorPosition & {
+  correctCoefficientY?: number;
+};
+
+const getCursorOffset = ({
+  elemWidth,
+  elemHeight,
+  cursorX,
+  cursorY,
+}: TCoords): TCursorPosition => ({
+  x: cursorX - elemWidth / 2,
+  y: cursorY - elemHeight / 2,
 });
 
-const addOffset = ({ x, y }: TCursorPosition, positionList: Array<TElemPosition>) => (
+const getElemOffset = (params: TElemOffset) => {
+  const {
+    translateX = 0,
+    translateY = 0,
+    coefficient = 0.1,
+    correctCoefficientY = 6,
+    x,
+    y,
+  } = params;
+
+  return {
+    X: x * coefficient + translateX,
+    Y: y * coefficient * correctCoefficientY + translateY,
+  };
+};
+
+const createTranslateString = (x: number, y: number) => `translate(${x}%, ${y}%)`;
+
+const addOffset = (cursorPos: TCursorPosition, positionList: Array<TElemPosition>) => (
   child: HTMLElement,
   index: number,
 ) => {
@@ -30,14 +58,9 @@ const addOffset = ({ x, y }: TCursorPosition, positionList: Array<TElemPosition>
     return;
   }
 
-  const { translateX, translateY, coefficient } = position;
-  const CORRECTED_COEFFICIENT = 6;
-  const translateWithOffset = {
-    X: x * coefficient + translateX,
-    Y: y * coefficient * CORRECTED_COEFFICIENT + translateY,
-  };
+  const elemOffset = getElemOffset({ ...cursorPos, ...position });
   // eslint-disable-next-line no-param-reassign
-  child.style.transform = `translate(${translateWithOffset.X}%, ${translateWithOffset.Y}%)`;
+  child.style.transform = createTranslateString(elemOffset.X, elemOffset.Y);
 };
 
 const cursorParallax = (...positionList: Array<TElemPosition>) => (
@@ -50,10 +73,10 @@ const cursorParallax = (...positionList: Array<TElemPosition>) => (
   }
 
   const cursorOffset = getCursorOffset({
-    width: clientWidth,
-    height: clientHeight,
-    clientY: e.clientY,
-    clientX: e.clientX,
+    elemWidth: clientWidth,
+    elemHeight: clientHeight,
+    cursorY: e.clientY,
+    cursorX: e.clientX,
   });
 
   const childList = Array.prototype.slice.call(children);
@@ -61,3 +84,5 @@ const cursorParallax = (...positionList: Array<TElemPosition>) => (
 };
 
 export default cursorParallax;
+
+export { getCursorOffset, getElemOffset, addOffset, createTranslateString };
