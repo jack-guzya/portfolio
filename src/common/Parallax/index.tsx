@@ -1,34 +1,42 @@
-import React from 'react';
+import React, { CSSProperties } from 'react';
 import classnames from 'classnames';
 import useCallbackRef from '../hooks/use-callback-ref';
 import s from './Parallax.module.css';
 
-interface IParallax<P> extends React.DetailedHTMLProps<React.HTMLAttributes<P>, P> {}
-interface IParallaxContainer<P> extends IParallax<P> {
-  children: <E extends HTMLElement>(parent: E) => React.ReactNode;
+interface IProps<P> extends React.DetailedHTMLProps<React.HTMLAttributes<P>, P> {}
+
+interface IContainerProps<P> extends IProps<P> {
+  children: <E extends HTMLElement>(parent: E, perspective?: number) => React.ReactNode;
+  perspective?: number;
 }
 
-const Parallax: React.FC<IParallaxContainer<HTMLDivElement>> = ({
+type TCreateLayer<T> = (layer: number, perspective?: number) => React.FC<IProps<T>>;
+
+const DEFAULT_PERSPECTIVE = 600;
+
+const Container: React.FC<IContainerProps<HTMLDivElement>> = ({
   children,
   className = '',
+  perspective = DEFAULT_PERSPECTIVE,
   ...props
 }) => {
   const [parent, callbackRef] = useCallbackRef<HTMLDivElement>();
   const CSSClass = classnames(s.container, { [className]: !!className });
 
   return (
-    <div className={CSSClass} ref={callbackRef} {...props}>
-      {parent && children(parent)}
+    <div
+      className={CSSClass}
+      ref={callbackRef}
+      style={{ perspective: `${perspective}px`, ...props.style }}
+      {...props}
+    >
+      {parent && children(parent, perspective)}
     </div>
   );
 };
 
-const createParallaxChild = (...classes: Array<string>): React.FC<IParallax<HTMLDivElement>> => ({
-  children,
-  className = '',
-  ...props
-}) => {
-  const CSSClass = classnames(...classes, { [className]: !!className });
+const Group: React.FC<IProps<HTMLDivElement>> = ({ children, className = '', ...props }) => {
+  const CSSClass = classnames(s.group, { [className]: !!className });
 
   return (
     <div className={CSSClass} {...props}>
@@ -37,10 +45,23 @@ const createParallaxChild = (...classes: Array<string>): React.FC<IParallax<HTML
   );
 };
 
-const Group = createParallaxChild(s.group);
-const Base = createParallaxChild(s.layer, s['layer--base']);
-const Back = createParallaxChild(s.layer, s['layer--back']);
+const createLayer: TCreateLayer<HTMLDivElement> = (layer, perspective = DEFAULT_PERSPECTIVE) => ({
+  children,
+  className = '',
+  ...props
+}) => {
+  const CSSClass = classnames(s.layer, { [className]: !!className });
+  const layerTransform: CSSProperties = {
+    transform: `translateZ(${-perspective * layer}px) scale(${1 + layer})`,
+  };
 
-export default Parallax;
+  return (
+    <div className={CSSClass} style={{ ...layerTransform, ...props.style }} {...props}>
+      {children}
+    </div>
+  );
+};
 
-export { Back, Base, Group };
+export default Container;
+
+export { Container, Group, createLayer };

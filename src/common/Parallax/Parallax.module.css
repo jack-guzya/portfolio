@@ -1,5 +1,5 @@
 .container {
-  perspective: 300px;
+  perspective: 600px;
   height: 100vh;
   overflow-y: auto;
   overflow-x: hidden;
@@ -7,12 +7,13 @@
 
 .group {
   position: relative;
-  height: 100vh;
+  min-height: 100vh;
   transform-style: preserve-3d;
+  /* transform: translate3d(700px, 0, -800px) rotateY(30deg); */
 }
 
 .layer {
-  position: absolute;
+  position: relative;
   top: 0;
   right: 0;
   bottom: 0;
@@ -20,12 +21,12 @@
 }
 
 .layer--base {
-  z-index: 4;
+  /* z-index: 4; */
   transform: translateZ(0);
 }
 
 .layer--back {
-  z-index: 3;
+  /* z-index: 3; */
   transform: translateZ(-300px) scale(2);
 }
 

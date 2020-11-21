@@ -3,11 +3,14 @@ import React from 'react';
 import Nav from '../components/Navigation';
 import Home from '../components/Home';
 import About from '../components/About';
-import Parallax, { Back, Base, Group } from '../common/Parallax';
+import Parallax, { Group, createLayer } from '../common/Parallax';
 
 import s from './App.module.css';
 
 function App() {
+  const Base = createLayer(0);
+  const Back = createLayer(2);
+
   return (
     <>
       <header className={s.header}>
