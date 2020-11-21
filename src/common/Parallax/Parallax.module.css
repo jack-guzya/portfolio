@@ -20,16 +20,6 @@
   left: 0;
 }
 
-.layer--base {
-  /* z-index: 4; */
-  transform: translateZ(0);
-}
-
-.layer--back {
-  /* z-index: 3; */
-  transform: translateZ(-300px) scale(2);
-}
-
 .container::-webkit-scrollbar {
   width: 0.2em;
 }
