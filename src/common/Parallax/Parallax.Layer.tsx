@@ -1,26 +1,21 @@
-import React, { CSSProperties } from 'react';
+import React from 'react';
 import classnames from 'classnames';
 import { DEFAULT_PERSPECTIVE } from './Parallax.constants';
 
 import s from './Parallax.module.css';
 
-type TCreateLayer<P> = (layer: number, perspective?: number) => React.FC<SpreadingProps<P>>;
+const createLayer = (layer: number, perspective: number = DEFAULT_PERSPECTIVE) =>
+  React.forwardRef<HTMLDivElement, SpreadingProps<HTMLDivElement>>(({ children, className = '', ...props }, ref) => {
+    const CSSClass = classnames(s.layer, { [className]: !!className });
+    const layerTransform = {
+      transform: `translateZ(${-perspective * layer}px) scale(${1 + layer})`,
+    };
 
-const createLayer: TCreateLayer<HTMLDivElement> = (layer, perspective = DEFAULT_PERSPECTIVE) => ({
-  children,
-  className = '',
-  ...props
-}) => {
-  const CSSClass = classnames(s.layer, { [className]: !!className });
-  const layerTransform: CSSProperties = {
-    transform: `translateZ(${-perspective * layer}px) scale(${1 + layer})`,
-  };
-
-  return (
-    <div className={CSSClass} style={{ ...layerTransform, ...props.style }} {...props}>
-      {children}
-    </div>
-  );
-};
+    return (
+      <div className={CSSClass} style={{ ...layerTransform, ...props.style }} ref={ref} {...props}>
+        {children}
+      </div>
+    );
+  });
 
 export default createLayer;

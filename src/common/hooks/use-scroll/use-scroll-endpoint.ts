@@ -1,5 +1,6 @@
 import { useRef } from 'react';
-import useScroll, { TViewport } from './use-scroll';
+import useScroll, { IHandleScroll, IEvent } from './use-scroll';
+import getClientScrollRate from './use-scroll.helpers';
 
 type TOptions<C, U> = {
   endPoint: number;
@@ -10,28 +11,27 @@ type TOptions<C, U> = {
 const handleScrollEndpoint = <E extends HTMLElement, C extends Function, U extends Function>(
   elemRef: React.MutableRefObject<E | null>,
   { endPoint, cb, upperCb }: TOptions<C, U>,
-) => {
+): IHandleScroll<E> => {
   let state: 'down' | 'up' = 'down';
 
-  return (e: Event) => {
-    const view = e.currentTarget as TViewport;
-    const elem = elemRef.current;
+  return <V extends HTMLElement>(e: IEvent<V>) => {
+    const viewport = e.currentTarget;
+    const element = elemRef.current;
 
-    if (!view || !elem) {
+    if (!viewport || !element) {
       return;
     }
 
-    const { clientHeight } = view;
-    const { y } = elem.getBoundingClientRect();
+    const scrollRate = getClientScrollRate({ viewport, element });
 
-    if (y < clientHeight * endPoint && state === 'down') {
+    if (scrollRate < endPoint && state === 'down') {
       cb();
       state = 'up';
 
       return;
     }
 
-    if (y > clientHeight * endPoint && state === 'up') {
+    if (scrollRate > endPoint && state === 'up') {
       upperCb ? upperCb() : cb();
       state = 'down';
     }

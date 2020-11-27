@@ -1,10 +1,16 @@
 import { useEffect } from 'react';
 
-export type TViewport = HTMLDivElement | null | undefined;
+export interface IEvent<V extends EventTarget> extends Event {
+  currentTarget: V | null
+}
 
-const useScroll = <V extends HTMLElement, T extends EventListenerOrEventListenerObject>(
+export interface IHandleScroll<V extends HTMLElement> extends EventListener {
+  (e: IEvent<V>): void
+}
+
+const useScroll = <V extends HTMLElement>(
   viewport: V | null,
-  handleScroll: T,
+  handleScroll: IHandleScroll<V>,
 ) => {
   useEffect(() => {
     viewport?.addEventListener('scroll', handleScroll);
