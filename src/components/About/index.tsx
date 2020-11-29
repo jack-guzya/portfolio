@@ -1,14 +1,19 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import Title from '../../common/Title';
 import s from './About.module.css';
-import { useScrollEndpoint } from '../../common/hooks/use-scroll';
+import { useScroll, getEndpointHandler } from '../../common/hooks/use-scroll';
 
 const About = <E extends HTMLElement>({ viewport }: { viewport: E }) => {
-  const ref = useScrollEndpoint(viewport, {
-    endPoint: 1,
-    cb: () => console.log('CALLBACK LOWER'),
-    upperCb: () => console.log('Callback upper'),
-  });
+  const ref = useRef<HTMLParagraphElement>(null); 
+
+  useScroll(
+    viewport,
+    getEndpointHandler(ref, {
+      endPoint: 1,
+      cb: () => console.log('CALLBACK LOWER'),
+      upperCb: () => console.log('Callback upper'),
+    }),
+  );
 
   return (
     <section className={s.wrapper}>
