@@ -6,8 +6,10 @@ import s from './Experience.module.css';
 
 const Experience = () => {
   return (
-    <section className={s.container}>
-      <Title>Experience</Title>
+    <section className={s.wrapper}>
+      <div className={s.container}>
+        <Title className={s.title}>Experience</Title>
+      </div>
     </section>
   );
 };

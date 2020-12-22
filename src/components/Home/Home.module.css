@@ -4,7 +4,7 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background: linear-gradient(#00000000 95%, var(--color-bg) 100%);
+  background: linear-gradient(#00000000 95%, var(--color-bg-primary) 100%);
   text-shadow: 1px 1px 1px #ffffff;
   font-size: 25px;
   font-weight: 300;

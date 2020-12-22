@@ -18,7 +18,7 @@ const About = <E extends HTMLElement>({ viewport }: { viewport: E }) => {
   return (
     <section className={s.wrapper}>
       <div className={s.container} ref={descriptionRef}>
-        <Title>About</Title>
+        <Title className={s.title}>About</Title>
         {isShow && (
           <div className={s.description}>
             <p className={s.details}>

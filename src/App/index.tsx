@@ -26,7 +26,7 @@ function App() {
                 </Home.Background>
               </Group>
               <Group style={{ zIndex: 4 }}>
-                <Base className={s.about}>
+                <Base>
                   <About viewport={parent} />
                 </Base>
                 <Base>
