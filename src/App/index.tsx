@@ -3,6 +3,7 @@ import React from 'react';
 import Nav from '../components/Navigation';
 import * as Home from '../components/Home';
 import About from '../components/About';
+import Experience from '../components/Experience';
 import Parallax, { Group, createLayer } from '../common/Parallax';
 
 import s from './App.module.css';
@@ -27,6 +28,9 @@ function App() {
               <Group style={{ zIndex: 4 }}>
                 <Base className={s.about}>
                   <About viewport={parent} />
+                </Base>
+                <Base>
+                  <Experience />
                 </Base>
               </Group>
             </>
