@@ -1,15 +1,5 @@
 .wrapper {
   background-color: var(--color-bg-primary);
-  width: 100vw;
-}
-
-.container {
-  box-sizing: border-box;
-  margin: 0 auto;
-  min-height: 100vh;
-  padding: 20px;
-  width: 100%;
-  font-size: 1.4em;
 }
 
 .title {
@@ -17,29 +7,18 @@
 }
 
 .details {
+  animation: show 1s ease-out 0s 1 normal forwards;
   margin-bottom: 40px;
   line-height: 1.8;
 }
 
-.description {
-  animation: show 1s ease-out 0s 1 normal forwards;
-}
-
 @keyframes show {
   from {
-    transform: translateY(10%);
+    transform: translateY(30%);
     opacity: 0;
   }
   to {
     transform: translateY(0);
     opacity: 1;
-  }
-}
-
-@media screen and (min-width: 768px) {
-  .container {
-    padding: 10px;
-    width: 70%;
-    max-width: 1600px;
   }
 }

@@ -1,7 +1,8 @@
 import React, { useRef, useState } from 'react';
 import Title from '../../common/Title';
-import s from './About.module.css';
+import Section from '../../common/Section';
 import { useScroll, getEndpointHandler } from '../../common/hooks/use-scroll';
+import s from './About.module.css';
 
 const About = <E extends HTMLElement>({ viewport }: { viewport: E }) => {
   const [isShow, setShowState] = useState<boolean>(false);
@@ -10,17 +11,17 @@ const About = <E extends HTMLElement>({ viewport }: { viewport: E }) => {
   useScroll(
     viewport,
     getEndpointHandler(descriptionRef, {
-      endPoint: 0.3,
+      endPoint: 0.6,
       cb: () => setShowState(true),
     }),
   );
 
   return (
-    <section className={s.wrapper}>
-      <div className={s.container} ref={descriptionRef}>
-        <Title className={s.title}>About</Title>
+    <Section className={s.wrapper}>
+      <Title className={s.title}>About</Title>
+      <div className={s.description} ref={descriptionRef}>
         {isShow && (
-          <div className={s.description}>
+          <>
             <p className={s.details}>
               Lorem ipsum, dolor sit amet consectetur adipisicing elit. Est laudantium quaerat sed
               dolores distinctio ducimus molestias quidem totam, vitae corrupti fugit porro
@@ -31,10 +32,10 @@ const About = <E extends HTMLElement>({ viewport }: { viewport: E }) => {
               dolores distinctio ducimus molestias quidem totam, vitae corrupti fugit porro
               voluptatem repellendus dolore tempore, quasi nesciunt, ullam accusantium.
             </p>
-          </div>
+          </>
         )}
       </div>
-    </section>
+    </Section>
   );
 };
 

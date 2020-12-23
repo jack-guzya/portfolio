@@ -1,16 +1,13 @@
 import React from 'react';
-// Components
 import Title from '../../common/Title';
-// Style
+import Section from '../../common/Section';
 import s from './Experience.module.css';
 
 const Experience = () => {
   return (
-    <section className={s.wrapper}>
-      <div className={s.container}>
-        <Title className={s.title}>Experience</Title>
-      </div>
-    </section>
+    <Section className={s.wrapper}>
+      <Title className={s.title}>Experience</Title>
+    </Section>
   );
 };
 
