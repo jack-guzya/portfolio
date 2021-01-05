@@ -2,10 +2,12 @@
 @import './fonts.css';
 
 :root {
-  --color-primary: #fff;
+  --color-primary: #c0c0c0;
   --color-secondary: #fffb00;
-  --color-bg-secondary: #222222;
-  --color-bg-primary: #000;
+  
+  --color-bg-primary: #131313;
+  --color-bg-secondary: #2e2e2e;
+  --color-bg-third: #1f1f1f;
 
   --transition-primary: 0.5s;
 
@@ -26,3 +28,22 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
+
+a {
+  color: inherit;
+  text-decoration: inherit
+}
+
+*::-webkit-scrollbar {
+  width: 0.2em;
+}
+
+*::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--color-secondary);
+  outline: 1px solid slategrey;
+}
+

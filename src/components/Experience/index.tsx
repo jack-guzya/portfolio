@@ -9,8 +9,8 @@ const Experience = () => {
   return (
     <Section className={s.wrapper}>
       <Title className={s.title}>Experience</Title>
-      {list.map(({ name, date, role, link }) => (
-        <Workplace key={name} name={name} date={date} role={role} link={link} />
+      {list.map(({ name, date, role, link, logo }) => (
+        <Workplace key={name} name={name} date={date} role={role} link={link} logo={logo} />
       ))}
     </Section>
   );
