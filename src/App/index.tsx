@@ -4,6 +4,7 @@ import Nav from '../components/Navigation';
 import * as Home from '../components/Home';
 import About from '../components/About';
 import Experience from '../components/Experience';
+import Skills from '../components/Skills';
 import Parallax, { Group, createLayer } from '../common/Parallax';
 
 import s from './App.module.css';
@@ -31,6 +32,9 @@ function App() {
                 </Base>
                 <Base>
                   <Experience />
+                </Base>
+                <Base>
+                  <Skills />
                 </Base>
               </Group>
             </>
