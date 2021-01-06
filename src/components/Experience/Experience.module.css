@@ -1,0 +1,7 @@
+.wrapper {
+  background-color: var(--color-bg-secondary);
+}
+
+.title {
+  color: var(--color-bg-primary);
+}
