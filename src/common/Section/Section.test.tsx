@@ -6,14 +6,14 @@ describe('Section component', () => {
   test('should be rendered', () => {
     render(<Section>Test section</Section>);
     const sectionElement = screen.getByText(/Test section/i);
-  
+
     expect(sectionElement).toBeInTheDocument();
   });
 
   test('should have a correct css class', () => {
     render(<Section>Test section</Section>);
     const sectionElement = screen.getByText(/Test section/i).parentNode as HTMLElement;
-  
+
     expect(sectionElement.className).toBe('wrapper');
   });
 

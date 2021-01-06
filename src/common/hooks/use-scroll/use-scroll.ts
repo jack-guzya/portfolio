@@ -1,11 +1,11 @@
 import { useEffect } from 'react';
 
 export interface IEvent<V extends EventTarget> extends Event {
-  currentTarget: V | null
+  currentTarget: V | null;
 }
 
 export interface IHandleScroll<E extends Event> extends EventListener {
-  (e: E): void
+  (e: E): void;
 }
 
 const useScroll = <V extends HTMLElement>(

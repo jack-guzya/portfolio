@@ -3,7 +3,11 @@ import classnames from 'classnames';
 
 import s from './Parallax.module.css';
 
-const Group: React.FC<SpreadingProps<HTMLDivElement>> = ({ children, className = '', ...props }) => {
+const Group: React.FC<SpreadingProps<HTMLDivElement>> = ({
+  children,
+  className = '',
+  ...props
+}) => {
   const CSSClass = classnames(s.group, { [className]: !!className });
 
   return (

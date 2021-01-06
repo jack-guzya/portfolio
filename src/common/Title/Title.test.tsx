@@ -6,14 +6,14 @@ describe('Title component', () => {
   test('should be rendered', () => {
     render(<Title>Test title</Title>);
     const titleElement = screen.getByText(/Test title/i);
-  
+
     expect(titleElement).toBeInTheDocument();
   });
 
   test('should have a correct css class', () => {
     render(<Title>Test title</Title>);
     const titleElement = screen.getByText(/Test title/i);
-  
+
     expect(titleElement.className).toBe('title');
   });
 

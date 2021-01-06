@@ -17,9 +17,9 @@ type TCursorPosition = {
 };
 
 type TElemOffset = TElemPosition &
-TCursorPosition & {
-  correctCoefficientY?: number;
-};
+  TCursorPosition & {
+    correctCoefficientY?: number;
+  };
 
 const getCursorOffset = ({
   elemWidth,

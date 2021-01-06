@@ -4,7 +4,7 @@
 :root {
   --color-primary: #c0c0c0;
   --color-secondary: #fffb00;
-  
+
   --color-bg-primary: #131313;
   --color-bg-secondary: #2e2e2e;
   --color-bg-third: #1f1f1f;
@@ -31,7 +31,7 @@ code {
 
 a {
   color: inherit;
-  text-decoration: inherit
+  text-decoration: inherit;
 }
 
 *::-webkit-scrollbar {
@@ -46,4 +46,3 @@ a {
   background-color: var(--color-secondary);
   outline: 1px solid slategrey;
 }
-

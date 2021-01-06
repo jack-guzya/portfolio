@@ -1,6 +1,6 @@
 import Container from './Parallax.Container';
 import Group from './Parallax.Group';
-import createLayer from './Parallax.Layer'; 
+import createLayer from './Parallax.Layer';
 
 export default Container;
 

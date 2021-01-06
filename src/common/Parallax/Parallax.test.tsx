@@ -92,7 +92,11 @@ describe('Parallax Layer', () => {
   });
 
   test('createLayer function should create a Parallax layer with transform value', () => {
-    expect(screen.getByText(/Base Layer/i).parentElement?.style.transform).toContain('translateZ(0px) scale(1)');
-    expect(screen.getByText(/Back Layer/i).parentElement?.style.transform).toContain('translateZ(-600px) scale(2)');
+    expect(screen.getByText(/Base Layer/i).parentElement?.style.transform).toContain(
+      'translateZ(0px) scale(1)',
+    );
+    expect(screen.getByText(/Back Layer/i).parentElement?.style.transform).toContain(
+      'translateZ(-600px) scale(2)',
+    );
   });
 });

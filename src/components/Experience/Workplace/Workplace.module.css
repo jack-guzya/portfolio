@@ -28,14 +28,14 @@
   display: flex;
   position: relative;
   transition-duration: inherit;
-  overflow: hidden;  
+  overflow: hidden;
   height: 0;
   padding: 0 10px;
   background-color: var(--color-bg-third);
 }
 
-.details::before{
-  content: "";
+.details::before {
+  content: '';
   position: absolute;
   top: 0;
   left: 50%;
@@ -46,17 +46,17 @@
   background-color: var(--color-secondary);
 }
 
-.container:hover .details{
+.container:hover .details {
   height: 150px;
   padding: 10px;
 }
 
-.container:hover .details::before{
+.container:hover .details::before {
   width: 100%;
   left: 0%;
 }
 
-.container:hover .title{
+.container:hover .title {
   color: #ffffff;
 }
 
@@ -72,7 +72,7 @@
     font-size: 1em;
   }
 
-  .container:hover .details{
+  .container:hover .details {
     height: 250px;
     padding: 20px;
   }
