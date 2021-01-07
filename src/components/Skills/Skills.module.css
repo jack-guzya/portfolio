@@ -5,3 +5,13 @@
 .title {
   color: var(--color-bg-secondary);
 }
+
+.main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.main > * {
+  margin: 20px;
+}

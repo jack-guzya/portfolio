@@ -9,9 +9,11 @@ const Skills = () => {
   return (
     <Section className={s.wrapper}>
       <Title className={s.title}>Skills</Title>
-      {list.map(({ name, rate }) => (
-        <Skill key={name} name={name} rate={rate} />
-      ))}
+      <div className={s.main}>
+        {list.map(({ name, rate }) => (
+          <Skill key={name} name={name} rate={rate} />
+        ))}
+      </div>
     </Section>
   );
 };
