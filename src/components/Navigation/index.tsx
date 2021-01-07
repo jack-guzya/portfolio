@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import classnames from 'classnames';
+import useMountingTrigger from '../../common/hooks/use-mounting-trigger';
 import s from './Nav.module.css';
 
 type TProps = {
@@ -7,13 +8,7 @@ type TProps = {
 };
 
 const Nav: React.FC<TProps> = ({ list }) => {
-  const [isActive, setTriggerState] = useState<boolean>(false);
-  const [isMount, setMountState] = useState<boolean>(false);
-
-  const handleTrigger = () => {
-    setTriggerState(!isActive);
-    !isActive && setMountState(true);
-  };
+  const { isMount, isActive, handleTrigger, setMountState } = useMountingTrigger();
 
   const classes = {
     container: classnames(s.container, { [s.show]: isActive }),
