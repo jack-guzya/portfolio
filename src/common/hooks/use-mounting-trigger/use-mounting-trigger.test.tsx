@@ -1,10 +1,10 @@
 /* eslint-disable prefer-const */
 import React from 'react';
 import { render, cleanup, screen, fireEvent, waitFor } from '@testing-library/react';
-import useMountingTrigger from '.';
+import useMountingTrigger, { THookProps } from '.';
 
 describe('useMountingTrigger hook', () => {
-  let triggerParams = {};
+  let triggerParams: THookProps;
   let props: SpreadingProps<HTMLDivElement>;
   let triggerState: ReturnType<typeof useMountingTrigger>;
 
@@ -46,10 +46,6 @@ describe('useMountingTrigger hook', () => {
   });
 
   test('a trigger should mount/unmount a container by click and an autoUnmount prop is true', async () => {
-    triggerParams = {
-      autoUnmount: true,
-    };
-
     render(<TestComponent />);
 
     expect(queryContainer()).not.toBeInTheDocument();
@@ -66,6 +62,10 @@ describe('useMountingTrigger hook', () => {
   });
 
   test('a trigger should not unmount a container by click and an autoUnmount prop is false', async () => {
+    triggerParams = {
+      autoUnmount: false,
+    };
+
     render(<TestComponent />);
 
     expect(queryContainer()).not.toBeInTheDocument();
@@ -78,6 +78,10 @@ describe('useMountingTrigger hook', () => {
   });
 
   test('a trigger should unmount a container by occurring some event', async () => {
+    triggerParams = {
+      autoUnmount: false,
+    };
+
     props = {
       onAnimationEnd: () => !triggerState.isActive && triggerState.setMountState(false),
     };

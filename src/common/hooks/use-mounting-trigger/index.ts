@@ -1,10 +1,10 @@
 import { useState } from 'react';
 
-type TProps = { isActive?: boolean; autoUnmount?: boolean };
+export type THookProps = { isActive?: boolean; autoUnmount?: boolean };
 
-const useMountingTrigger = (props: TProps = { isActive: false, autoUnmount: false }) => {
-  const [isActiveTrigger, setTriggerState] = useState(props.isActive);
-  const [isMount, setMountState] = useState(props.isActive);
+const useMountingTrigger = ({ isActive = false, autoUnmount = true }: THookProps = {}) => {
+  const [isActiveTrigger, setTriggerState] = useState(isActive);
+  const [isMount, setMountState] = useState(isActive);
 
   const handleTrigger = () => {
     setTriggerState(!isActiveTrigger);
@@ -13,12 +13,11 @@ const useMountingTrigger = (props: TProps = { isActive: false, autoUnmount: fals
       setMountState(true);
       return;
     }
-
-    props.autoUnmount && setMountState(false);
+    
+    autoUnmount && setMountState(false);
   };
 
   return { isMount, isActive: isActiveTrigger, handleTrigger, setMountState };
 };
-
 
 export default useMountingTrigger;
