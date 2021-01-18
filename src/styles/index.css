@@ -1,5 +1,6 @@
 @import-normalize;
 @import './fonts.css';
+@import './button.css';
 
 :root {
   --color-primary: #c0c0c0;

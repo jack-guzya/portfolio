@@ -1,0 +1,30 @@
+.button {
+  overflow: visible;
+  cursor: pointer;
+  transition-duration: var(--transition-primary);
+  border: 1px solid #00000000;
+  background: transparent;
+  color: var(--color-primary);
+}
+
+.button:focus {
+  outline: none;
+}
+
+.button_border:hover {
+  border: 1px solid var(--color-secondary);
+}
+
+.button_border:active {
+  transition-duration: 0s;
+  border: 1px solid var(--color-third);
+}
+
+.button_border-bottom:hover {
+  border-bottom: 1px solid var(--color-secondary);
+}
+
+.button_border-bottom:active {
+  transition-duration: 0s;
+  border-bottom: 1px solid var(--color-third);
+}

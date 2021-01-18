@@ -33,4 +33,15 @@ const skills = [
   },
 ];
 
+export const secondarySkills = [
+  {
+    title: 'Software Development',
+    list: ['Express JS', 'MongoDB', 'Node.js'],
+  },
+  {
+    title: 'Others',
+    list: ['OOP', 'JWT', 'Git', 'GitHub', 'Kanban', 'Scrum', 'AJAX', 'Python', 'MS Word', 'Redux'],
+  },
+];
+
 export default skills;
