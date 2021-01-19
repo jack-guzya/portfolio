@@ -3,30 +3,23 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  transition-duration: var(--transition-primary);
-  cursor: pointer;
-  border: 2px solid;
-  border-color: #00000000;
   border-radius: 10px;
+  margin: 10px;
+  width: 25%;
+  height: 30%;
+  max-width: 250px;
+  max-height: 320px;
   padding: 15px;
-}
-
-.container:hover {
-  border-color: var(--color-secondary);
-  color: var(--color-third);
-}
-
-.container:active {
-  transition-duration: 0s;
-  border-color: var(--color-third);
 }
 
 .chart {
   display: block;
-  width: 90%;
-  height: 90%;
-  max-width: 100px;
-  max-height: 100px;
+  width: 80%;
+  height: 80%;
+}
+
+.name {
+  font-size: 1.1em;
 }
 
 .circle {

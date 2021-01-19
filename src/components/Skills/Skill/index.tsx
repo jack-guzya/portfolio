@@ -36,13 +36,13 @@ type TSkillProps = TChartProps & {
 const Skill: React.FC<TSkillProps> = ({ name, rate, link }) => {
   return (
     <a
-      className={s.container}
+      className={`button button_border ${s.container}`}
       href={link || '#'}
       target={link ? '_blank' : '_self'}
       rel="noreferrer"
     >
       <Chart rate={rate} />
-      <p>{name}</p>
+      <p className={s.name}>{name}</p>
     </a>
   );
 };

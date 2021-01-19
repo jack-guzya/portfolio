@@ -18,7 +18,7 @@
 .table {
   padding: 20px;
   width: 100%;
-  font-size: 0.7em;
+  font-size: 0.9em;
 }
 
 .show {
@@ -33,12 +33,6 @@
 
 .skill {
   margin-bottom: 5px;
-}
-
-@media screen and (min-width: 768px) {
-  .table {
-    font-size: 1em;
-  }
 }
 
 @keyframes show {

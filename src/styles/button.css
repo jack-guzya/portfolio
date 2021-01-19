@@ -4,6 +4,7 @@
   transition-duration: var(--transition-primary);
   border: 1px solid #00000000;
   background: transparent;
+  font: inherit;
   color: var(--color-primary);
 }
 
