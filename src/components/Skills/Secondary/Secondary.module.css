@@ -1,0 +1,54 @@
+.trigger {
+  padding: 10px;
+  margin-top: 40px;
+  width: 100%;
+  font-size: 1.5em;
+}
+
+.active {
+  border-bottom: 1px solid var(--color-secondary);
+}
+
+.container {
+  overflow: auto;
+  animation: hide 1s ease 0s 1 normal forwards;
+  background-color: var(--color-bg-third);
+}
+
+.table {
+  padding: 20px;
+  width: 100%;
+  font-size: 0.9em;
+}
+
+.show {
+  animation: show 1s ease 0s 1 normal forwards;
+}
+
+.title {
+  width: 30%;
+  text-align: end;
+  vertical-align: baseline;
+}
+
+.skill {
+  margin-bottom: 5px;
+}
+
+@keyframes show {
+  from {
+    height: 0;
+  }
+  to {
+    height: 400px;
+  }
+}
+
+@keyframes hide {
+  from {
+    height: 400px;
+  }
+  to {
+    height: 0;
+  }
+}

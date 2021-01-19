@@ -1,0 +1,49 @@
+.container {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  margin: 10px;
+  width: 25%;
+  height: 30%;
+  max-width: 250px;
+  max-height: 320px;
+  padding: 15px;
+}
+
+.chart {
+  display: block;
+  width: 80%;
+  height: 80%;
+}
+
+.name {
+  font-size: 1.1em;
+}
+
+.circle {
+  stroke: var(--color-secondary);
+  fill: none;
+  stroke-width: 3;
+  stroke-linecap: round;
+  animation: progress 1s ease-out forwards;
+}
+
+@keyframes progress {
+  0% {
+    stroke-dasharray: 0 100;
+  }
+}
+
+.circleBg {
+  fill: none;
+  stroke: var(--color-bg-secondary);
+  stroke-width: 3;
+}
+
+.percentage {
+  fill: var(--color-primary);
+  font-size: 0.35em;
+  text-anchor: middle;
+}

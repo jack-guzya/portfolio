@@ -1,9 +1,11 @@
 @import-normalize;
 @import './fonts.css';
+@import './button.css';
 
 :root {
   --color-primary: #c0c0c0;
   --color-secondary: #fffb00;
+  --color-third: #ffffff;
 
   --color-bg-primary: #131313;
   --color-bg-secondary: #2e2e2e;
