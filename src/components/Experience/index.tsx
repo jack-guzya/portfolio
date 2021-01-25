@@ -10,13 +10,11 @@ const Experience = () => {
     <Section className={s.wrapper}>
       <Title className={s.title}>Experience</Title>
       <div className={s.list}>
-        {list.map(({ name, date, role, link, description }) => (
+        {list.map(({ name, main, description }) => (
           <Workplace
             key={name}
             name={name}
-            date={date}
-            role={role}
-            link={link}
+            main={main}
             description={description}
           />
         ))}
