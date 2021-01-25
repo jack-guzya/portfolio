@@ -1,6 +1,7 @@
 .container {
   display: flex;
   flex-direction: column;
+  align-items: center;
   transition-duration: var(--transition-primary);
 }
 
@@ -8,15 +9,19 @@
   transition-duration: inherit;
   margin: 20px;
   text-align: center;
-  font-weight: lighter;
-  font-size: 1.5em;
+  font-weight: normal;
+  font-size: 1.1em;
+}
+
+.title:hover {
+  color: var(--color-bg-third);
 }
 
 .logo {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 40vw;
+  width: 40vw;  
   max-width: 200px;
 }
 
@@ -26,34 +31,24 @@
 
 .details {
   display: flex;
+  flex-direction: column;
   position: relative;
   transition-duration: inherit;
-  overflow: hidden;
+  overflow: auto;
   height: 0;
-  padding: 0 10px;
   background-color: var(--color-bg-third);
 }
 
-.details::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 50%;
-  display: block;
-  transition-duration: inherit;
-  height: 1px;
-  width: 0;
-  background-color: var(--color-secondary);
+.main-info {
+  list-style-type: none;
+}
+
+.main-info > li {
+  margin-bottom: 10px;
 }
 
 .container:hover .details {
-  height: 150px;
-  padding: 10px;
-}
-
-.container:hover .details::before {
-  width: 100%;
-  left: 0%;
+  height: 200px;
 }
 
 .container:hover .title {
@@ -61,19 +56,16 @@
 }
 
 .description {
-  border-left: 3px solid var(--color-bg-secondary);
-  margin-left: 15px;
-  padding-left: 25px;
-  font-size: 0.8em;
+  padding: 10px;
 }
 
 @media screen and (min-width: 768px) {
-  .description {
-    font-size: 1em;
-  }
-
   .container:hover .details {
     height: 250px;
     padding: 20px;
+  }
+
+  .title{
+    font-size: 1.4em;
   }
 }

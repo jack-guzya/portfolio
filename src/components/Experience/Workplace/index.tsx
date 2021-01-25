@@ -1,5 +1,4 @@
 import React from 'react';
-import defaultLogo from '../assets/default-logo.svg';
 import s from './Workplace.module.css';
 
 type TProps = {
@@ -7,23 +6,21 @@ type TProps = {
   date: string;
   role: string;
   link?: string;
-  logo?: string;
+  description?: string;
 };
 
-const Workplace: React.FC<TProps> = ({ name, date, role, link, logo }) => {
+const Workplace: React.FC<TProps> = ({ name, date, role, link, description }) => {
   return (
     <div className={s.container}>
       <h3 className={s.title}>{name}</h3>
       <div className={s.details}>
-        <div className={s.logo}>
-          <a href={link || '#'} target={link ? '_blank' : '_self'} rel="noreferrer">
-            <img src={logo || defaultLogo} alt={name} />
-          </a>
-        </div>
-        <div className={s.description}>
-          <p>{date}</p>
-          <p>{role}</p>
-        </div>
+        <ul className={s['main-info']}>
+          <li>{date}</li>
+          <li>{role}</li>
+          {link && <li><a href={link} target='_blank' rel="noreferrer">{link}</a></li>}
+        </ul>
+
+        {description && <p className={s.description}>{description}</p>} 
       </div>
     </div>
   );
