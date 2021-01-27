@@ -1,0 +1,31 @@
+language: node_js
+
+node_js:
+  - lts/*
+
+cache:
+  directories:
+    - node_modules
+
+branches:
+  only:
+    - main
+
+jobs:
+  include:
+    - stage: unit tests and lint
+      script: CI=true npm run test
+    - stage: unit tests and lint
+      script: npm run lint
+    - stage: deploy to staging
+      script: skip
+      deploy:
+        provider: heroku
+        app: guzya
+        api_key: '$HEROKU_KEY'
+        on:
+          branch: main
+
+env:
+  global:
+    secure: GROt4wX4GNakFIuePxzHhdPX4x847TVcqdLWoP8jNAsLWyOKZsSAbSDyZeCszZ7kxK1+yUQff04yE+tK2J0DyVAHM0I+90Ba81uYWylzGIX5EcfxiH+hLRv34fmYZujwTYNskktPk96OXFg+dt9+lLdz93mMiR0p8/CGQhG650x0CA9cGzgbHAW2FM7T65a64VK4an115v1f1GJt0jQbNVkS5BjpCTlsL8Jc9YqDiHeYWxf4x9mTE26DOi4niAcWE3ojRI/4YFr8xDOl5C3wlzCwXlYITzh42Ig4bBNzpEmHXT6k/RYB914esr9RNvogma2fB7ywY1mqWq4CRB6yNoaRyXuhOeyc0JKPf9br99onZl4jCgqSsJjpSETvIb0/5kWxxdYGCvVRnuG6gZ+aYyA0s7s47zvwAXzXWC3UiAwLX/60+/MWgTsZqz6b5A8Dnsz0Qq6Jt34pOoLIFwhioDyi/aqmPaiwBz+CMp1yctJb+lecCvT7F4GVqpmjDuEiy0JPT/jUpYoe2zMZt0m3J1ZeFCiNXnp7hMTB92RAPzp2LiSwHqU0M/0U0bCnQdjze3cn5SAwFsWMKTKb53TZ8YvMG747sdUXDrtYnBnTIxoL3Viq4olcDIRwfuvQCB/kWZsRnDcGgrkb2YjilKYIdFTc7DIqG6PUfE/Aq+cPR6Y=
