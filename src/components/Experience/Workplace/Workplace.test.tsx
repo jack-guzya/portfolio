@@ -1,6 +1,7 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import Workplace, { renderListItem } from '.';
+import s from './Workplace.module.css';
 
 const data = [
   'Jul 2020 - Sep 2020',
@@ -34,10 +35,25 @@ describe('renderListItem', () => {
 });
 
 describe('Workplace component', () => {
-  test('should be rendered', () => {
-    render(<Workplace name="Test name" main={data} />);
+  const title = 'Test name';
+  const titleElement = () => screen.getByText(title);
+  const detailsContainer = () => document.querySelector(`.${s.details}`);
 
-    expect(screen.getByText(/Test name/i)).toBeInTheDocument();
+  beforeEach(() => render(<Workplace name={title} main={data} />));
+
+  test('should be rendered', () => {
+    expect(titleElement()).toBeInTheDocument();
     expect(screen.getByText(data[0])).toBeInTheDocument();
+  });
+
+  test('css class of details ("show") should be changed by clicking the button (title)', () => {
+    const getStyle = () => detailsContainer()?.className;
+    const before = getStyle();
+
+    fireEvent.click(titleElement());
+    expect(before).not.toBe(getStyle());
+
+    fireEvent.click(titleElement());
+    expect(getStyle()).toBe(before);
   });
 });
