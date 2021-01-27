@@ -9,9 +9,17 @@ const Experience = () => {
   return (
     <Section className={s.wrapper}>
       <Title className={s.title}>Experience</Title>
-      {list.map(({ name, date, role, link, logo }) => (
-        <Workplace key={name} name={name} date={date} role={role} link={link} logo={logo} />
-      ))}
+      <div className={s.list}>
+        {list.map(({ name, main, description }, index) => (
+          <Workplace
+            key={name}
+            name={name}
+            main={main}
+            description={description}
+            active={!index}
+          />
+        ))}
+      </div>
     </Section>
   );
 };

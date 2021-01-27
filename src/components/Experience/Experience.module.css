@@ -5,3 +5,7 @@
 .title {
   color: var(--color-bg-primary);
 }
+
+.list > * {
+  margin-bottom: 15px;
+}

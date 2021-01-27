@@ -1,29 +1,57 @@
 import React from 'react';
-import defaultLogo from '../assets/default-logo.svg';
+import classnames from 'classnames';
+import useMountingTrigger from '../../../common/hooks/use-mounting-trigger';
 import s from './Workplace.module.css';
+
+type TItemOfMain =
+  | string
+  | {
+      link: string;
+      text?: string;
+    };
 
 type TProps = {
   name: string;
-  date: string;
-  role: string;
-  link?: string;
-  logo?: string;
+  main: Array<TItemOfMain>;
+  description?: string;
+  active?: boolean;
 };
 
-const Workplace: React.FC<TProps> = ({ name, date, role, link, logo }) => {
+export const renderListItem = (data: TItemOfMain) => {
+  if (typeof data === 'object') {
+    return (
+      <li key={data.link}>
+        <a href={data.link} target="_blank" rel="noreferrer">
+          {data.text || data.link}
+        </a>
+      </li>
+    );
+  }
+
+  return <li key={data}>{data}</li>;
+};
+
+const Workplace: React.FC<TProps> = ({ name, main, description, active }) => {
+  const { isActive, handleTrigger } = useMountingTrigger({
+    autoUnmount: false,
+    isActive: active,
+  });
+
+  const classes = {
+    container: classnames(s.container, { [s.active]: isActive }),
+    details: classnames(s.details, { [s.show]: isActive }),
+    trigger: classnames('button', s.title, { [s.active]: isActive }),
+  };
+
   return (
-    <div className={s.container}>
-      <h3 className={s.title}>{name}</h3>
-      <div className={s.details}>
-        <div className={s.logo}>
-          <a href={link || '#'} target={link ? '_blank' : '_self'} rel="noreferrer">
-            <img src={logo || defaultLogo} alt={name} />
-          </a>
-        </div>
-        <div className={s.description}>
-          <p>{date}</p>
-          <p>{role}</p>
-        </div>
+    <div className={classes.container}>
+      <button className={classes.trigger} type="button" onClick={handleTrigger}>
+        {name}
+      </button>
+      <div className={classes.details}>
+        <ul className={s['main-info']}>{main.map(renderListItem)}</ul>
+
+        {description && <p className={s.description}>{description}</p>}
       </div>
     </div>
   );
