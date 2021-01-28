@@ -18,14 +18,25 @@
     "web-vitals": "^0.2.4"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "npm install -g serve && serve -s build",
+    "dev": "react-scripts start",
     "build": "react-scripts build",
-    "build-ci": "CI=true npm run test && npm run build",
     "test": "react-scripts test",
+    "test-ci": "CI=true react-scripts test --coverage",
     "eject": "react-scripts eject",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx src --color",
     "format": "prettier --write src/**/*.{ts,tsx,scss,css,json}",
     "isready": "npm run format && npm run lint && npm run build"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{ts,tsx}",
+      "!src/config/**/*.ts",
+      "!**/vendor/**",
+      "!src/**/*.d.ts",
+      "!src/common/hooks/use-scroll/index.ts",
+      "!src/common/Parallax/index.ts"
+    ]
   },
   "eslintConfig": {
     "extends": [
@@ -50,6 +61,7 @@
     "@typescript-eslint/eslint-plugin": "4.7.0",
     "@typescript-eslint/parser": "4.7.0",
     "babel-eslint": "10.1.0",
+    "coveralls": "^3.1.0",
     "eslint-config-airbnb": "18.2.1",
     "eslint-config-airbnb-typescript": "12.0.0",
     "eslint-config-prettier": "6.15.0",
