@@ -13,11 +13,11 @@ branches:
 
 jobs:
   include:
-    - stage: unit tests and lint
-      script: CI=true npm run test
-    - stage: unit tests and lint
+    - stage: Unit tests and lint
+      script: CI=true npm run test-ci
+    - stage: Unit tests and lint
       script: npm run lint
-    - stage: deploy to staging
+    - stage: Deploy to staging
       script: skip
       deploy:
         provider: heroku
