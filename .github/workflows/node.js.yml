@@ -53,3 +53,9 @@ jobs:
           heroku_email: jack199479@gmail.com
           remote_branch: main
           dontautocreate: true
+      
+      - name: Invoke deployment hook
+        uses: distributhor/workflow-webhook@v1
+        env:
+          webhook_url: ${{ secrets.WEBHOOK_URL }}
+          webhook_secret: ${{ secrets.WEBHOOK_SECRET }}
