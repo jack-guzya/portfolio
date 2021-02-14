@@ -1,21 +1,30 @@
 import React from 'react';
 import Title from '../../common/Title';
 import Section from '../../common/Section';
-import Skill from './Skill';
+import Skill, { TSkill } from './Skill';
 import SecondarySkills from './Secondary';
-import mainList, { secondarySkills } from './Skills.list';
+// import mainList, { secondarySkills } from './Skills.list';
 import s from './Skills.module.css';
 
-const Skills = () => {
+type Props = {
+  content: {
+    main: Array<TSkill>;
+    secondary: Array<{ title: string; list: Array<string> }>;
+  };
+};
+
+const Skills: React.FC<Props> = ({ content }) => {
+  const { main, secondary } = content;
+
   return (
     <Section className={s.wrapper}>
       <Title className={s.title}>Skills</Title>
       <div className={s.main}>
-        {mainList.map(({ name, rate }) => (
+        {main.map(({ name, rate }) => (
           <Skill key={name} name={name} rate={rate} />
         ))}
       </div>
-      <SecondarySkills data={secondarySkills} />
+      <SecondarySkills data={secondary} />
     </Section>
   );
 };

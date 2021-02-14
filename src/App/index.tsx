@@ -7,11 +7,15 @@ import Experience from '../components/Experience';
 import Skills from '../components/Skills';
 import Parallax, { Group, createLayer } from '../common/Parallax';
 
+import content from '../content.json';
+
 import s from './App.module.css';
 
 const Base = createLayer(0);
 
 function App() {
+  const { home, about, experience, skills } = content;
+
   return (
     <>
       <header className={s.header}>
@@ -23,18 +27,18 @@ function App() {
             <>
               <Group style={{ zIndex: 3 }}>
                 <Home.Background viewport={parent}>
-                  <Home.Container />
+                  <Home.Container content={home} />
                 </Home.Background>
               </Group>
               <Group style={{ zIndex: 4 }}>
                 <Base>
-                  <About viewport={parent} />
+                  <About viewport={parent} content={about} />
                 </Base>
                 <Base>
-                  <Experience />
+                  <Experience content={experience} />
                 </Base>
                 <Base>
-                  <Skills />
+                  <Skills content={skills} />
                 </Base>
               </Group>
             </>

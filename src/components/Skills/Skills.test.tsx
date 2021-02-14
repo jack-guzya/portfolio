@@ -4,6 +4,6 @@ import Skills from '.';
 
 describe('Experience component', () => {
   test('should be rendered', () => {
-    render(<Skills />);
+    render(<Skills content={{ main: [], secondary: [] }} />);
   });
 });

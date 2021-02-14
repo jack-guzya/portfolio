@@ -3,14 +3,14 @@ import classnames from 'classnames';
 import useMountingTrigger from '../../../common/hooks/use-mounting-trigger';
 import s from './Secondary.module.css';
 
-type TProps = {
+type TSecondarySkills = {
   data: Array<{
     title: string;
     list: Array<string>;
   }>;
 };
 
-const SecondarySkills: React.FC<TProps> = ({ data }) => {
+const SecondarySkills: React.FC<TSecondarySkills> = ({ data }) => {
   const { isMount, isActive, handleTrigger, setMountState } = useMountingTrigger({
     autoUnmount: false,
   });

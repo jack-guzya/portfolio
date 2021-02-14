@@ -1,11 +1,11 @@
 import React from 'react';
 import s from './Skill.module.css';
 
-type TChartProps = {
+type TChart = {
   rate: number;
 };
 
-const Chart: React.FC<TChartProps> = ({ rate }) => (
+const Chart: React.FC<TChart> = ({ rate }) => (
   <div className={s.chart}>
     <svg viewBox="0 0 36 36" width="100%" height="100%">
       <path
@@ -28,12 +28,12 @@ const Chart: React.FC<TChartProps> = ({ rate }) => (
   </div>
 );
 
-type TSkillProps = TChartProps & {
+export type TSkill = TChart & {
   name: string;
   link?: string;
 };
 
-const Skill: React.FC<TSkillProps> = ({ name, rate, link }) => {
+const Skill: React.FC<TSkill> = ({ name, rate, link }) => {
   return (
     <a
       className={`button button_border ${s.container}`}

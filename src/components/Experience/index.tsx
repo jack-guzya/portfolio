@@ -1,23 +1,24 @@
 import React from 'react';
 import Title from '../../common/Title';
 import Section from '../../common/Section';
-import Workplace from './Workplace';
-import list from './Experience.list';
+import Workplace, { TWorkplace } from './Workplace';
 import s from './Experience.module.css';
 
-const Experience = () => {
+export type TExperience = {
+  content: {
+    list: Array<TWorkplace>;
+  };
+};
+
+const Experience: React.FC<TExperience> = ({ content }) => {
+  const { list } = content;
+
   return (
     <Section className={s.wrapper}>
       <Title className={s.title}>Experience</Title>
       <div className={s.list}>
-        {list.map(({ name, main, description }, index) => (
-          <Workplace
-            key={name}
-            name={name}
-            main={main}
-            description={description}
-            active={!index}
-          />
+        {list.map(({ name, main, description, active }) => (
+          <Workplace key={name} name={name} main={main} description={description} active={active} />
         ))}
       </div>
     </Section>

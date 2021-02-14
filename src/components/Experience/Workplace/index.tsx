@@ -1,23 +1,24 @@
 import React from 'react';
+import stringHash from 'string-hash';
 import classnames from 'classnames';
 import useMountingTrigger from '../../../common/hooks/use-mounting-trigger';
 import s from './Workplace.module.css';
 
-type TItemOfMain =
+type ItemOfMain =
   | string
   | {
       link: string;
       text?: string;
     };
 
-type TProps = {
+export type TWorkplace = {
   name: string;
-  main: Array<TItemOfMain>;
-  description?: string;
+  main: Array<ItemOfMain>;
+  description?: Array<string>;
   active?: boolean;
 };
 
-export const renderListItem = (data: TItemOfMain) => {
+export const renderListItem = (data: ItemOfMain) => {
   if (typeof data === 'object') {
     return (
       <li key={data.link}>
@@ -31,7 +32,12 @@ export const renderListItem = (data: TItemOfMain) => {
   return <li key={data}>{data}</li>;
 };
 
-const Workplace: React.FC<TProps> = ({ name, main, description, active }) => {
+const Workplace: React.FC<TWorkplace> = ({
+  name,
+  main,
+  description,
+  active,
+}) => {
   const { isActive, handleTrigger } = useMountingTrigger({
     autoUnmount: false,
     isActive: active,
@@ -51,7 +57,12 @@ const Workplace: React.FC<TProps> = ({ name, main, description, active }) => {
       <div className={classes.details}>
         <ul className={s['main-info']}>{main.map(renderListItem)}</ul>
 
-        {description && <p className={s.description}>{description}</p>}
+        {description &&
+          description.map((paragraph) => (
+            <p key={stringHash(paragraph)} className={s.description}>
+              {paragraph}
+            </p>
+          ))}
       </div>
     </div>
   );
