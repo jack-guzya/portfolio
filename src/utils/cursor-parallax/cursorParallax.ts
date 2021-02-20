@@ -85,4 +85,4 @@ const cursorParallax = (...positionList: Array<TElemPosition>) => (
 
 export default cursorParallax;
 
-export { getCursorOffset, getElemOffset, addOffset, createTranslateString };
+export { getCursorOffset, getElemOffset, addOffset, createTranslateString, cursorParallax };

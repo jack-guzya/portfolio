@@ -1,6 +1,6 @@
 import React from 'react';
 import { cleanup, fireEvent, render, screen } from '@testing-library/react';
-import cursorParallax, { getCursorOffset, getElemOffset, createTranslateString } from '.';
+import cursorParallax, { getCursorOffset, getElemOffset, createTranslateString } from './cursorParallax';
 
 test('getCursorOffset should return cursor coords relative to a center of an element', () => {
   [

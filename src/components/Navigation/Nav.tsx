@@ -1,6 +1,6 @@
 import React from 'react';
 import classnames from 'classnames';
-import useMountingTrigger from '../../common/hooks/use-mounting-trigger';
+import useMountingTrigger from '../../hooks/use-mounting-trigger';
 import s from './Nav.module.css';
 
 type TProps = {
@@ -10,7 +10,7 @@ type TProps = {
   }>;
 };
 
-const Nav: React.FC<TProps> = ({ list }) => {
+export const Nav: React.FC<TProps> = ({ list }) => {
   const { isMount, isActive, handleTrigger, setMountState } = useMountingTrigger({
     autoUnmount: false,
   });
@@ -40,5 +40,3 @@ const Nav: React.FC<TProps> = ({ list }) => {
     </div>
   );
 };
-
-export default Nav;

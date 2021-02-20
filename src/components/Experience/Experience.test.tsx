@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import Experience, { TExperience } from '.';
+import { Experience, TExperience } from './Experience';
 
 const props: TExperience = {
   content: {

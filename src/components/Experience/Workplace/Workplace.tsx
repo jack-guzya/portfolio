@@ -1,7 +1,7 @@
 import React from 'react';
 import stringHash from 'string-hash';
 import classnames from 'classnames';
-import useMountingTrigger from '../../../common/hooks/use-mounting-trigger';
+import useMountingTrigger from '../../../hooks/use-mounting-trigger';
 import s from './Workplace.module.css';
 
 type ItemOfMain =
@@ -32,12 +32,7 @@ export const renderListItem = (data: ItemOfMain) => {
   return <li key={data}>{data}</li>;
 };
 
-const Workplace: React.FC<TWorkplace> = ({
-  name,
-  main,
-  description,
-  active,
-}) => {
+export const Workplace: React.FC<TWorkplace> = ({ name, main, description, active }) => {
   const { isActive, handleTrigger } = useMountingTrigger({
     autoUnmount: false,
     isActive: active,
@@ -67,5 +62,3 @@ const Workplace: React.FC<TWorkplace> = ({
     </div>
   );
 };
-
-export default Workplace;

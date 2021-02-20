@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
-import Workplace, { renderListItem } from '.';
+import { Workplace, renderListItem } from './Workplace';
 import s from './Workplace.module.css';
 
 const data = [

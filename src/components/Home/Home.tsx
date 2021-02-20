@@ -1,7 +1,6 @@
 import React from 'react';
 import stringHash from 'string-hash';
-import cursorParallax from '../../common/cursor-parallax';
-import Background from './Home.background';
+import { cursorParallax } from '../../utils/cursor-parallax';
 import s from './Home.module.css';
 
 type Props = {
@@ -11,7 +10,7 @@ type Props = {
   };
 };
 
-const Home: React.FC<SpreadingProps<HTMLDivElement> & Props> = ({ content, ...props }) => {
+export const Home: React.FC<SpreadingProps<HTMLDivElement> & Props> = ({ content, ...props }) => {
   const { text, name } = content;
 
   return (
@@ -28,6 +27,3 @@ const Home: React.FC<SpreadingProps<HTMLDivElement> & Props> = ({ content, ...pr
     </section>
   );
 };
-
-export default Home;
-export { Home as Container, Background };

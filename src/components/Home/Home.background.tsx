@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { createLayer } from '../../common/Parallax';
-import { useScroll, getScrollRate } from '../../common/hooks/use-scroll';
-import { IEvent } from '../../common/hooks/use-scroll/use-scroll';
+import { useScroll, getScrollRate } from '../../hooks/use-scroll';
+import { IEvent } from '../../hooks/use-scroll/use-scroll';
 import getStringRGB from './Home.helpers';
 
 import s from './Home.module.css';
@@ -29,7 +29,7 @@ type TProps<V> = {
   viewport: V;
 };
 
-const Background = <V extends HTMLElement>({ children, viewport }: TProps<V>) => {
+export const HomeBackground = <V extends HTMLElement>({ children, viewport }: TProps<V>) => {
   const baseRef = useRef<HTMLDivElement>(null);
   const firstLayerRef = useRef<HTMLDivElement>(null);
   const fiveLayerRef = useRef<HTMLDivElement>(null);
@@ -78,5 +78,3 @@ const Background = <V extends HTMLElement>({ children, viewport }: TProps<V>) =>
     </>
   );
 };
-
-export default Background;

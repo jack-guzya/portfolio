@@ -4,3 +4,21 @@
   top: 0;
   width: 100%;
 }
+
+.about,
+.skills {
+  background-color: var(--color-bg-primary);
+}
+
+.about__title,
+.skills__title {
+  color: var(--color-bg-secondary);
+}
+
+.experience {
+  background-color: var(--color-bg-secondary);
+}
+
+.experience__title {
+  color: var(--color-bg-primary);
+}

@@ -2,7 +2,11 @@ import React from 'react';
 import classnames from 'classnames';
 import s from './Section.module.css';
 
-const Section: React.FC<SpreadingProps<HTMLDivElement>> = ({ children, className, ...props }) => {
+export const Section: React.FC<SpreadingProps<HTMLDivElement>> = ({
+  children,
+  className,
+  ...props
+}) => {
   const cssClass = classnames(s.wrapper, { [className as string]: !!className });
 
   return (
@@ -11,5 +15,3 @@ const Section: React.FC<SpreadingProps<HTMLDivElement>> = ({ children, className
     </section>
   );
 };
-
-export default Section;

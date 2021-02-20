@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, screen, cleanup } from '@testing-library/react';
-import Skill from '.';
+import { Skill } from './Skill';
 import s from './Skill.module.css';
 
 describe('Experience component', () => {

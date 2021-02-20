@@ -1,8 +1,6 @@
 import React from 'react';
-import Title from '../../common/Title';
-import Section from '../../common/Section';
-import Skill, { TSkill } from './Skill';
-import SecondarySkills from './Secondary';
+import { Skill, TSkill } from './Skill';
+import { SecondarySkills } from './Secondary';
 import s from './Skills.module.css';
 
 type Props = {
@@ -12,19 +10,18 @@ type Props = {
   };
 };
 
-const Skills: React.FC<Props> = ({ content }) => {
+export const Skills: React.FC<Props> = ({ content }) => {
   const { main, secondary } = content;
 
   return (
-    <Section className={s.wrapper} id="skills">
-      <Title className={s.title}>Skills</Title>
+    <>
       <div className={s.main}>
         {main.map(({ name, rate }) => (
           <Skill key={name} name={name} rate={rate} />
         ))}
       </div>
       <SecondarySkills data={secondary} />
-    </Section>
+    </>
   );
 };
 

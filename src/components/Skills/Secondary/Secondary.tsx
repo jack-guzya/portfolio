@@ -1,6 +1,6 @@
 import React from 'react';
 import classnames from 'classnames';
-import useMountingTrigger from '../../../common/hooks/use-mounting-trigger';
+import useMountingTrigger from '../../../hooks/use-mounting-trigger';
 import s from './Secondary.module.css';
 
 type TSecondarySkills = {
@@ -10,7 +10,7 @@ type TSecondarySkills = {
   }>;
 };
 
-const SecondarySkills: React.FC<TSecondarySkills> = ({ data }) => {
+export const SecondarySkills: React.FC<TSecondarySkills> = ({ data }) => {
   const { isMount, isActive, handleTrigger, setMountState } = useMountingTrigger({
     autoUnmount: false,
   });
