@@ -26,7 +26,7 @@ const About = <E extends HTMLElement>({ viewport, content }: Props<E>) => {
   );
 
   return (
-    <Section className={s.wrapper}>
+    <Section className={s.wrapper} id="about">
       <Title className={s.title}>About</Title>
       <div className={s.description} ref={descriptionRef}>
         {isShow &&

@@ -3,15 +3,19 @@
   display: flex;
   margin: 0 auto;
   width: 99%;
+  text-shadow: 1px 1px 1px #000000;
 }
 
 .trigger {
+  position: absolute;
+  z-index: 100;
   overflow: visible;
   transition-duration: var(--transition-primary);
   cursor: pointer;
   margin: 10px;
   border: 2px solid var(--color-primary);
   border-radius: 50%;
+  box-shadow: 0px 0px 1px 0px #000000;
   width: 35px;
   height: 35px;
   background: transparent;
@@ -22,13 +26,12 @@
 }
 
 .navigation {
-  z-index: -1;
-  position: absolute;
   animation-name: hide;
   animation-duration: var(--transition-primary);
   animation-fill-mode: forwards;
   text-align: center;
   width: 100%;
+  font-size: 1.2em;
 }
 
 .list {

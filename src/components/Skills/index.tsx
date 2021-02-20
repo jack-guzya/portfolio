@@ -17,7 +17,7 @@ const Skills: React.FC<Props> = ({ content }) => {
   const { main, secondary } = content;
 
   return (
-    <Section className={s.wrapper}>
+    <Section className={s.wrapper} id="skills">
       <Title className={s.title}>Skills</Title>
       <div className={s.main}>
         {main.map(({ name, rate }) => (

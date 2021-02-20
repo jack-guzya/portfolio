@@ -21,6 +21,7 @@ function App() {
       <header className={s.header}>
         <Nav list={navigation} />
       </header>
+
       <main>
         <Parallax>
           {(parent) => (

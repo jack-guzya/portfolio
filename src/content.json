@@ -6,10 +6,22 @@
     ]
   },
   "navigation": [
-    "Home",
-    "About",
-    "Experience",
-    "Skills"
+    {
+      "id": "home",
+      "name": "Home"
+    },
+    {
+      "id": "about",
+      "name": "About"
+    },
+    {
+      "id": "experience",
+      "name": "Experience"
+    },
+    {
+      "id": "skills",
+      "name": "Skills"
+    }
   ],
   "about": {
     "text": [

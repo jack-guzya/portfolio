@@ -14,7 +14,7 @@ const Experience: React.FC<TExperience> = ({ content }) => {
   const { list } = content;
 
   return (
-    <Section className={s.wrapper}>
+    <Section className={s.wrapper} id="experience">
       <Title className={s.title}>Experience</Title>
       <div className={s.list}>
         {list.map(({ name, main, description, active }) => (

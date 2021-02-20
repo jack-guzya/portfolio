@@ -4,7 +4,10 @@ import useMountingTrigger from '../../common/hooks/use-mounting-trigger';
 import s from './Nav.module.css';
 
 type TProps = {
-  list: Array<string>;
+  list: Array<{
+    id: string;
+    name: string;
+  }>;
 };
 
 const Nav: React.FC<TProps> = ({ list }) => {
@@ -26,9 +29,9 @@ const Nav: React.FC<TProps> = ({ list }) => {
           onAnimationEnd={() => !isActive && setMountState(false)}
         >
           <ul className={s.list}>
-            {list.map((item) => (
-              <li key={item} className={s.item}>
-                {item}
+            {list.map(({ id, name }) => (
+              <li key={name} className={s.item}>
+                <a href={`#${id}`}>{name}</a>
               </li>
             ))}
           </ul>

@@ -11,13 +11,15 @@ type Props = {
   };
 };
 
-const Home: React.FC<Props> = ({ content }) => {
+const Home: React.FC<SpreadingProps<HTMLDivElement> & Props> = ({ content, ...props }) => {
   const { text, name } = content;
 
   return (
     <section
       className={s.container}
       onMouseMove={cursorParallax({ coefficient: 0.01 }, { coefficient: 0.01 })}
+      id="home"
+      {...props}
     >
       <h2 className={s.title}>
         Hi, I'm <span className={s.name}>{name}</span>
