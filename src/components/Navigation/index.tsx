@@ -8,7 +8,9 @@ type TProps = {
 };
 
 const Nav: React.FC<TProps> = ({ list }) => {
-  const { isMount, isActive, handleTrigger, setMountState } = useMountingTrigger();
+  const { isMount, isActive, handleTrigger, setMountState } = useMountingTrigger({
+    autoUnmount: false,
+  });
 
   const classes = {
     container: classnames(s.container, { [s.show]: isActive }),
