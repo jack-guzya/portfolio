@@ -13,15 +13,18 @@ const Nav: React.FC<TProps> = ({ list }) => {
   });
 
   const classes = {
-    container: classnames(s.container, { [s.show]: isActive }),
+    navigation: classnames(s.navigation, { [s.show]: isActive }),
     trigger: classnames(s.trigger, { [s.active]: isActive }),
   };
 
   return (
-    <div className={s.navigation}>
+    <div className={s.container}>
       <button className={classes.trigger} type="button" onClick={handleTrigger} />
       {isMount && (
-        <nav className={classes.container} onAnimationEnd={() => !isActive && setMountState(false)}>
+        <nav
+          className={classes.navigation}
+          onAnimationEnd={() => !isActive && setMountState(false)}
+        >
           <ul className={s.list}>
             {list.map((item) => (
               <li key={item} className={s.item}>

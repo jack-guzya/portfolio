@@ -1,4 +1,4 @@
-.navigation {
+.container {
   position: relative;
   display: flex;
   margin: 0 auto;
@@ -21,7 +21,7 @@
   outline: none;
 }
 
-.container {
+.navigation {
   z-index: -1;
   position: absolute;
   animation-name: hide;
@@ -48,11 +48,11 @@
   border-color: var(--color-secondary);
 }
 
-.container.show {
+.navigation.show {
   animation-name: show;
 }
 
-.container::after {
+.navigation::after {
   content: '';
   display: block;
   transition-duration: var(--transition-primary);
@@ -62,19 +62,19 @@
   background-color: var(--color-secondary);
 }
 
-.container.show::after {
+.navigation.show::after {
   width: 90%;
 }
 
 @keyframes hide {
   from {
-    top: 0;
+    transform: translateY(0);
     opacity: 1;
     backdrop-filter: blur(2px);
   }
 
   to {
-    top: -20%;
+    transform: translateY(-20px);
     opacity: 0;
     backdrop-filter: blur(0px);
   }
@@ -82,12 +82,12 @@
 
 @keyframes show {
   from {
-    top: -20%;
+    transform: translateY(-20px);
     opacity: 0;
     backdrop-filter: blur(0px);
   }
   to {
-    top: 0;
+    transform: translateY(0);
     opacity: 1;
     backdrop-filter: blur(2px);
   }

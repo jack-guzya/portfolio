@@ -14,12 +14,12 @@ import s from './App.module.css';
 const Base = createLayer(0);
 
 function App() {
-  const { home, about, experience, skills } = content;
+  const { home, about, experience, skills, navigation } = content;
 
   return (
     <>
       <header className={s.header}>
-        <Nav list={['Home', 'About', 'Skills', 'Experience', 'Works', 'Contacts']} />
+        <Nav list={navigation} />
       </header>
       <main>
         <Parallax>
