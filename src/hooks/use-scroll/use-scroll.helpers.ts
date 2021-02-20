@@ -1,37 +1,32 @@
 type StartingPoint = 'top' | 'bottom';
 
-const getScrollRate = <E extends HTMLElement>(
-  element: E,
-  coordinate: StartingPoint = 'top',
-  viewport = document.body,
-) => {
-  const { clientHeight } = viewport;
+const getScrollRate = <E extends HTMLElement>(element: E, startingPoint: StartingPoint = 'top') => {
+  const { outerHeight } = window;
   const { top, bottom } = element.getBoundingClientRect();
 
-  switch (coordinate) {
+  switch (startingPoint) {
     case 'bottom':
-      return bottom / clientHeight;
+      return bottom / outerHeight;
 
     case 'top':
-      return top / clientHeight;
+      return top / outerHeight;
 
     default:
-      return top / clientHeight;
+      return top / outerHeight;
   }
 };
 
 const scrollHandler = <R extends HTMLElement>(
   elemRef: React.MutableRefObject<R | null>,
   ...cbList: Array<(scrollRate: number, elem: R) => void>
-) => <T extends HTMLElement>(e: { currentTarget: T }) => {
-  const viewport = e.currentTarget;
+): EventListener => () => {
   const element = elemRef.current;
 
-  if (!viewport || !element) {
+  if (!element) {
     return;
   }
 
-  const scrollRate = getScrollRate(element, 'top', viewport);
+  const scrollRate = getScrollRate(element);
 
   cbList.forEach((cb) => cb(scrollRate, element));
 };

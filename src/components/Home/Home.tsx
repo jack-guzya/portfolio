@@ -1,6 +1,6 @@
 import React from 'react';
 import stringHash from 'string-hash';
-import { cursorParallax } from '../../utils/cursor-parallax';
+import { Background } from './Background';
 import s from './Home.module.css';
 
 type Props = {
@@ -14,16 +14,21 @@ export const Home: React.FC<SpreadingProps<HTMLDivElement> & Props> = ({ content
   const { text, name } = content;
 
   return (
-    <section
-      className={s.container}
-      onMouseMove={cursorParallax({ coefficient: 0.01 }, { coefficient: 0.01 })}
-      id="home"
-      {...props}
-    >
-      <h2 className={s.title}>
-        Hi, I'm <span className={s.name}>{name}</span>
-      </h2>
-      {text && text.map((paragraph) => <p key={stringHash(paragraph)}>{paragraph}</p>)}
-    </section>
+    <>
+      <section className={s.container} {...props}>
+        <h2 className={s.title}>
+          Hi, I'm <span className={s.name}>{name}</span>
+        </h2>
+
+        {text &&
+          text.map((paragraph) => (
+            <p className={s.text} key={stringHash(paragraph)}>
+              {paragraph}
+            </p>
+          ))}
+
+        <Background />
+      </section>
+    </>
   );
 };

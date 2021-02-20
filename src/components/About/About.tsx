@@ -3,14 +3,13 @@ import stringHash from 'string-hash';
 import { useScroll, scrollHandler } from '../../hooks/use-scroll';
 import s from './About.module.css';
 
-type Props<E> = {
-  viewport: E;
+type Props = {
   content: {
     text: Array<string>;
   };
 };
 
-export const About = <E extends HTMLElement>({ viewport, content }: Props<E>) => {
+export const About: React.FC<Props> = ({ content }) => {
   const [isShow, setShowState] = useState<boolean>(false);
   const descriptionRef = useRef<HTMLDivElement>(null);
   const handleScroll = scrollHandler(
@@ -19,7 +18,7 @@ export const About = <E extends HTMLElement>({ viewport, content }: Props<E>) =>
   );
   const { text } = content;
 
-  useScroll(handleScroll, viewport);
+  useScroll(handleScroll);
 
   return (
     <div className={s.description} ref={descriptionRef}>
