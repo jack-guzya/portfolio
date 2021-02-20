@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { createLayer } from '../../common/Parallax';
-import { useScroll, getClientScrollRate } from '../../common/hooks/use-scroll';
+import { useScroll, getScrollRate } from '../../common/hooks/use-scroll';
 import { IEvent } from '../../common/hooks/use-scroll/use-scroll';
 import getStringRGB from './Home.helpers';
 
@@ -46,8 +46,7 @@ const Background = <V extends HTMLElement>({ children, viewport }: TProps<V>) =>
       return;
     }
 
-    const scrollRate =
-      1 - getClientScrollRate({ viewport: view, element: base, coordinate: 'bottom' });
+    const scrollRate = 1 - getScrollRate(base, 'bottom', view);
 
     if (scrollRate > 1) {
       return;
@@ -62,7 +61,7 @@ const Background = <V extends HTMLElement>({ children, viewport }: TProps<V>) =>
     sun.style.backgroundColor = getStringRGB(RGB.sun.from, RGB.sun.to, scrollRate);
   };
 
-  useScroll(viewport, handleScroll);
+  useScroll(handleScroll, viewport);
 
   return (
     <>

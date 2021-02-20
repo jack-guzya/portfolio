@@ -9,13 +9,13 @@ export interface IHandleScroll<E extends Event> extends EventListener {
 }
 
 const useScroll = <V extends HTMLElement>(
-  viewport: V | null,
   handleScroll: IHandleScroll<IEvent<V>>,
+  viewport = document.body,
 ) => {
   useEffect(() => {
-    viewport?.addEventListener('scroll', handleScroll);
+    viewport.addEventListener('scroll', handleScroll);
 
-    return () => viewport?.removeEventListener('scroll', handleScroll);
+    return () => viewport.removeEventListener('scroll', handleScroll);
   });
 };
 

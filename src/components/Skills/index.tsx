@@ -3,7 +3,6 @@ import Title from '../../common/Title';
 import Section from '../../common/Section';
 import Skill, { TSkill } from './Skill';
 import SecondarySkills from './Secondary';
-// import mainList, { secondarySkills } from './Skills.list';
 import s from './Skills.module.css';
 
 type Props = {

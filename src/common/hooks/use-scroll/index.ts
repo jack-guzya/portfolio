@@ -1,6 +1,6 @@
 import useScroll from './use-scroll';
-import { getClientScrollRate, getEndpointHandler } from './use-scroll.helpers';
+import { getScrollRate, scrollHandler } from './use-scroll.helpers';
 
-export { useScroll, getClientScrollRate, getEndpointHandler };
+export { useScroll, getScrollRate, scrollHandler };
 
 export default useScroll;

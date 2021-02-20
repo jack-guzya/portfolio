@@ -1,14 +1,10 @@
-type TScrollRateParams<V, E> = {
-  viewport: V;
-  element: E;
-  coordinate?: 'top' | 'bottom';
-};
+type StartingPoint = 'top' | 'bottom';
 
-const getClientScrollRate = <V extends HTMLElement, E extends HTMLElement>({
-  viewport,
-  element,
-  coordinate,
-}: TScrollRateParams<V, E>) => {
+const getScrollRate = <E extends HTMLElement>(
+  element: E,
+  coordinate: StartingPoint = 'top',
+  viewport = document.body,
+) => {
   const { clientHeight } = viewport;
   const { top, bottom } = element.getBoundingClientRect();
 
@@ -24,40 +20,20 @@ const getClientScrollRate = <V extends HTMLElement, E extends HTMLElement>({
   }
 };
 
-type TOptions<C, U> = {
-  endPoint: number;
-  cb: C;
-  upperCb?: U;
-};
-
-const getEndpointHandler = <R extends HTMLElement, C extends Function, U extends Function>(
+const scrollHandler = <R extends HTMLElement>(
   elemRef: React.MutableRefObject<R | null>,
-  { endPoint, cb, upperCb }: TOptions<C, U>,
-) => {
-  let state: 'down' | 'up' = 'down';
+  ...cbList: Array<(scrollRate: number, elem: R) => void>
+) => <T extends HTMLElement>(e: { currentTarget: T }) => {
+  const viewport = e.currentTarget;
+  const element = elemRef.current;
 
-  return <T extends HTMLElement>(e: { currentTarget: T }) => {
-    const viewport = e.currentTarget;
-    const element = elemRef.current;
+  if (!viewport || !element) {
+    return;
+  }
 
-    if (!viewport || !element) {
-      return;
-    }
+  const scrollRate = getScrollRate(element, 'top', viewport);
 
-    const scrollRate = getClientScrollRate({ viewport, element });
-
-    if (scrollRate < endPoint && state === 'down') {
-      cb();
-      state = 'up';
-
-      return;
-    }
-
-    if (scrollRate > endPoint && state === 'up') {
-      upperCb ? upperCb() : cb();
-      state = 'down';
-    }
-  };
+  cbList.forEach((cb) => cb(scrollRate, element));
 };
 
-export { getEndpointHandler, getClientScrollRate };
+export { scrollHandler, getScrollRate };
