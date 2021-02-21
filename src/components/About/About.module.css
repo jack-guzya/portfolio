@@ -1,5 +1,5 @@
 .details {
-  animation: show 1s ease-out 0s 1 normal forwards;
+  animation: show 2s ease 0s 1 normal forwards;
   margin-bottom: 40px;
   line-height: 1.8;
 }
