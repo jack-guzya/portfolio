@@ -16,7 +16,7 @@ export const Parallax: React.FC<SpreadingProps<HTMLDivElement> & TParallax> = ({
   ...props
 }) => {
   const ref = useRef<HTMLDivElement>(null);
-  const handleScroll = scrollHandler(ref, (scrollRate, elem) => {
+  const handleScroll = scrollHandler(ref, (scrollRate, prevScrollRate, elem) => {
     const translateY = scrollRate <= 0 ? scrollRate * offset : 0;
     setTranslateY(elem, translateY);
   });

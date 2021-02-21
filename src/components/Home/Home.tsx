@@ -10,25 +10,23 @@ type Props = {
   };
 };
 
-export const Home: React.FC<SpreadingProps<HTMLDivElement> & Props> = ({ content, ...props }) => {
+export const Home: React.FC<Props> = ({ content }) => {
   const { text, name } = content;
 
   return (
     <>
-      <section className={s.container} {...props}>
-        <h2 className={s.title}>
-          Hi, I'm <span className={s.name}>{name}</span>
-        </h2>
+      <h2 className={s.title}>
+        Hi, I'm <span className={s.name}>{name}</span>
+      </h2>
 
-        {text &&
-          text.map((paragraph) => (
-            <p className={s.text} key={stringHash(paragraph)}>
-              {paragraph}
-            </p>
-          ))}
+      {text &&
+        text.map((paragraph) => (
+          <p className={s.text} key={stringHash(paragraph)}>
+            {paragraph}
+          </p>
+        ))}
 
-        <Background />
-      </section>
+      <Background />
     </>
   );
 };

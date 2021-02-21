@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-const useScroll = (handleScroll: EventListener, { isInit } = { isInit: true }) => {
+export const useScroll = (handleScroll: EventListener, { isInit } = { isInit: true }) => {
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
 
@@ -9,5 +9,3 @@ const useScroll = (handleScroll: EventListener, { isInit } = { isInit: true }) =
     return () => window.removeEventListener('scroll', handleScroll);
   }, [handleScroll, isInit]);
 };
-
-export default useScroll;
