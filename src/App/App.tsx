@@ -10,7 +10,7 @@ export const App = () => {
   return (
     <>
       <header className={s.header}>
-        <Nav list={navigation} />
+        <Nav linkList={navigation} />
       </header>
 
       <main>

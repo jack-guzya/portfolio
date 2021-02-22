@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import stringHash from 'string-hash';
-import { useScroll, scrollHandler } from '../../hooks/use-scroll';
+import { useScroll, addScrollHandlers } from '../../hooks/use-scroll';
 import s from './About.module.css';
 
 type Props = {
@@ -12,7 +12,7 @@ type Props = {
 export const About: React.FC<Props> = ({ content }) => {
   const [isShow, setShowState] = useState<boolean>(false);
   const descriptionRef = useRef<HTMLDivElement>(null);
-  const handleScroll = scrollHandler(
+  const handleScroll = addScrollHandlers(
     descriptionRef,
     (scrollRate) => scrollRate < 0.6 && setShowState(true),
   );

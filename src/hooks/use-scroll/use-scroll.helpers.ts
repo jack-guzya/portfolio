@@ -2,16 +2,6 @@ type StartingPoint = 'top' | 'bottom';
 
 type Handler = (scrollRate: number, prevScrollRate: number, elem: HTMLElement) => void;
 
-const checkValueTransition = (first: number, second: number) => {
-  const toBoolean = (value: number) => value > 0;
-
-  if (first === undefined || second === undefined) {
-    return false;
-  }
-
-  return toBoolean(first) !== toBoolean(second);
-};
-
 export const getScrollRate = <E extends HTMLElement>(
   element: E,
   startingPoint: StartingPoint = 'top',
@@ -31,7 +21,7 @@ export const getScrollRate = <E extends HTMLElement>(
   }
 };
 
-export const scrollHandler = <R extends HTMLElement>(
+export const addScrollHandlers = <R extends HTMLElement>(
   elemRef: React.MutableRefObject<R | null>,
   ...cbList: Array<Handler>
 ): EventListener => {
@@ -51,12 +41,25 @@ export const scrollHandler = <R extends HTMLElement>(
   };
 };
 
-export const valueTransitionHandler = (...cbList: Array<(elem: HTMLElement) => void>) => (
+const roundNumber = (value: number, charAmount = 2) =>
+  Math.round(value * 10 ** charAmount) / 10 ** charAmount;
+
+const checkRateTransition = (targetRate: number, prevRate: number) => {
+  if (targetRate === undefined || prevRate === undefined) {
+    return false;
+  }
+
+  const roundedTargetRate = roundNumber(targetRate);
+
+  return prevRate < 0 ? roundedTargetRate >= 0 : roundedTargetRate <= 0;
+};
+
+export const addRateTransitionHandlers = (...cbList: Array<(elem: HTMLElement) => void>) => (
   scrollRate: number,
   prevScrollRate: number,
   elem: HTMLElement,
 ) => {
-  if (checkValueTransition(scrollRate, prevScrollRate)) {
+  if (checkRateTransition(scrollRate, prevScrollRate)) {
     cbList.forEach((cb) => cb(elem));
   }
 };

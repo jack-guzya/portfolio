@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { useScroll, scrollHandler } from '../../hooks/use-scroll';
+import { useScroll, addScrollHandlers } from '../../hooks/use-scroll';
 
 type TParallax = {
   offset?: number;
@@ -16,7 +16,7 @@ export const Parallax: React.FC<SpreadingProps<HTMLDivElement> & TParallax> = ({
   ...props
 }) => {
   const ref = useRef<HTMLDivElement>(null);
-  const handleScroll = scrollHandler(ref, (scrollRate, prevScrollRate, elem) => {
+  const handleScroll = addScrollHandlers(ref, (scrollRate, prevScrollRate, elem) => {
     const translateY = scrollRate <= 0 ? scrollRate * offset : 0;
     setTranslateY(elem, translateY);
   });

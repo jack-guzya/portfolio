@@ -17,9 +17,12 @@
   border: 2px solid #ffffff;
   border-radius: 50%;
   box-shadow: 0px 0px 1px 0px #000000;
-  width: 35px;
-  height: 35px;
+  width: 45px;
+  height: 45px;
   background: transparent;
+  text-shadow: 1px 1px 1px #000000;
+  color: var(--color-secondary);
+  font-size: 1.2em;
 }
 
 .trigger:focus {
@@ -43,13 +46,20 @@
   list-style-type: none;
 }
 
-.item {
+.link {
+  transition-duration: var(--transition-primary);
   margin: 7px;
 }
 
-.active,
+.link.active,
+.link:hover {
+  color: var(--color-secondary);
+}
+
+.trigger .active,
 .trigger:hover {
   border-color: var(--color-secondary);
+  color: var(--color-third);
 }
 
 .navigation.show {
