@@ -1,7 +1,7 @@
 import React from 'react';
 import stringHash from 'string-hash';
 import classnames from 'classnames';
-import useMountingTrigger from '../../../hooks/use-mounting-trigger';
+import { useMountingTrigger } from '../../../hooks/use-mounting-trigger';
 import s from './Workplace.module.css';
 
 type ItemOfMain =

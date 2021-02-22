@@ -1,10 +1,10 @@
 /* eslint-disable prefer-const */
 import React from 'react';
 import { render, cleanup, screen, fireEvent, waitFor } from '@testing-library/react';
-import useMountingTrigger, { THookProps } from '.';
+import { useMountingTrigger, MountingTriggerParams } from './use-mounting-trigger';
 
 describe('useMountingTrigger hook', () => {
-  let triggerParams: THookProps;
+  let triggerParams: MountingTriggerParams;
   let props: SpreadingProps<HTMLDivElement>;
   let triggerState: ReturnType<typeof useMountingTrigger>;
 
@@ -57,7 +57,7 @@ describe('useMountingTrigger hook', () => {
 
     click();
     await waitFor(queryContainer);
-    
+
     expect(queryContainer()).not.toBeInTheDocument();
   });
 

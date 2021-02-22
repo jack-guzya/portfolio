@@ -1,6 +1,6 @@
 import React from 'react';
 import classnames from 'classnames';
-import useMountingTrigger from '../../../hooks/use-mounting-trigger';
+import { useMountingTrigger } from '../../../hooks/use-mounting-trigger';
 import s from './Secondary.module.css';
 
 type TSecondarySkills = {
@@ -11,7 +11,7 @@ type TSecondarySkills = {
 };
 
 export const SecondarySkills: React.FC<TSecondarySkills> = ({ data }) => {
-  const { isMount, isActive, handleTrigger, setMountState } = useMountingTrigger({
+  const { isMount, isActive, handleTrigger, unmount } = useMountingTrigger({
     autoUnmount: false,
   });
 
@@ -25,7 +25,7 @@ export const SecondarySkills: React.FC<TSecondarySkills> = ({ data }) => {
       <button className={classes.trigger} type="button" onClick={handleTrigger}>
         See more
       </button>
-      <div className={classes.container} onAnimationEnd={() => !isActive && setMountState(false)}>
+      <div className={classes.container} onAnimationEnd={unmount}>
         {isMount && (
           <table className={s.table}>
             <tbody>
