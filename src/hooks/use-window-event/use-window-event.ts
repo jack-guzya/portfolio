@@ -15,5 +15,5 @@ export const useWindowEvent = (
     isInitiallyStarted && window.dispatchEvent(new Event(type));
 
     return () => window.removeEventListener(type, eventListener);
-  }, [eventListener, isInitiallyStarted, type]);
+  });
 };
