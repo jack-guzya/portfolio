@@ -16,8 +16,8 @@ export const Skills: React.FC<Props> = ({ content }) => {
   return (
     <>
       <div className={s.main}>
-        {main.map(({ name, rate }) => (
-          <Skill key={name} name={name} rate={rate} />
+        {main.map(({ name, rate, link }) => (
+          <Skill key={name} name={name} rate={rate} link={link} />
         ))}
       </div>
       <SecondarySkills data={secondary} />

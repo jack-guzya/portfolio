@@ -96,35 +96,43 @@
     "main": [
       {
         "name": "JavaScript",
-        "rate": 75
+        "rate": 75,
+        "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript"
       },
       {
         "name": "TypeScript",
-        "rate": 50
+        "rate": 50,
+        "link": "https://www.typescriptlang.org"
       },
       {
         "name": "React",
-        "rate": 75
+        "rate": 75,
+        "link": "https://reactjs.org"
       },
       {
         "name": "Redux",
-        "rate": 75
+        "rate": 75,
+        "link": "https://redux.js.org"
       },
       {
         "name": "NodeJS",
-        "rate": 50
+        "rate": 50,
+        "link": "https://nodejs.org/en/"
       },
       {
         "name": "Express",
-        "rate": 60
+        "rate": 60,
+        "link": "https://expressjs.com"
       },
       {
         "name": "Webpack",
-        "rate": 70
+        "rate": 70,
+        "link": "https://webpack.js.org"
       },
       {
         "name": "Git",
-        "rate": 70
+        "rate": 70,
+        "link": "https://git-scm.com/"
       }
     ],
     "secondary": [

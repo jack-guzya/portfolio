@@ -40,13 +40,13 @@
     height: 0;
   }
   to {
-    height: 400px;
+    height: 500px;
   }
 }
 
 @keyframes hide {
   from {
-    height: 400px;
+    height: 500px;
   }
   to {
     height: 0;

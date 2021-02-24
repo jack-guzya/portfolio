@@ -22,7 +22,7 @@ export const renderListItem = (data: ItemOfMain) => {
   if (typeof data === 'object') {
     return (
       <li key={data.link}>
-        <a href={data.link} target="_blank" rel="noreferrer">
+        <a href={data.link} className={s.link} target="_blank" rel="noreferrer">
           {data.text || data.link}
         </a>
       </li>
