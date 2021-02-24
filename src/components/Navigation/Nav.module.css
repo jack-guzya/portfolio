@@ -1,34 +1,41 @@
-.navigation {
+.container {
   position: relative;
   display: flex;
   margin: 0 auto;
   width: 99%;
+  text-shadow: 1px 1px 1px #000000;
+  color: #ffffff;
 }
 
 .trigger {
+  position: absolute;
+  z-index: 100;
   overflow: visible;
   transition-duration: var(--transition-primary);
   cursor: pointer;
   margin: 10px;
-  border: 2px solid var(--color-primary);
+  border: 2px solid #ffffff;
   border-radius: 50%;
-  width: 35px;
-  height: 35px;
+  box-shadow: 0px 0px 1px 0px #000000;
+  width: 45px;
+  height: 45px;
   background: transparent;
+  text-shadow: 1px 1px 1px #000000;
+  color: var(--color-secondary);
+  font-size: 1.2em;
 }
 
 .trigger:focus {
   outline: none;
 }
 
-.container {
-  z-index: -1;
-  position: absolute;
+.navigation {
   animation-name: hide;
   animation-duration: var(--transition-primary);
   animation-fill-mode: forwards;
   text-align: center;
   width: 100%;
+  font-size: 1.2em;
 }
 
 .list {
@@ -39,20 +46,27 @@
   list-style-type: none;
 }
 
-.item {
+.link {
+  transition-duration: var(--transition-primary);
   margin: 7px;
 }
 
-.active,
-.trigger:hover {
-  border-color: var(--color-secondary);
+.link.active,
+.link:hover {
+  color: var(--color-secondary);
 }
 
-.container.show {
+.trigger .active,
+.trigger:hover {
+  border-color: var(--color-secondary);
+  color: var(--color-third);
+}
+
+.navigation.show {
   animation-name: show;
 }
 
-.container::after {
+.navigation::after {
   content: '';
   display: block;
   transition-duration: var(--transition-primary);
@@ -62,19 +76,19 @@
   background-color: var(--color-secondary);
 }
 
-.container.show::after {
+.navigation.show::after {
   width: 90%;
 }
 
 @keyframes hide {
   from {
-    top: 0;
+    transform: translateY(0);
     opacity: 1;
     backdrop-filter: blur(2px);
   }
 
   to {
-    top: -20%;
+    transform: translateY(-20px);
     opacity: 0;
     backdrop-filter: blur(0px);
   }
@@ -82,12 +96,12 @@
 
 @keyframes show {
   from {
-    top: -20%;
+    transform: translateY(-20px);
     opacity: 0;
     backdrop-filter: blur(0px);
   }
   to {
-    top: 0;
+    transform: translateY(0);
     opacity: 1;
     backdrop-filter: blur(2px);
   }

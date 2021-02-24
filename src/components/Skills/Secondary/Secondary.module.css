@@ -18,7 +18,7 @@
 .table {
   padding: 20px;
   width: 100%;
-  font-size: 0.9em;
+  font-size: 0.75em;
 }
 
 .show {
@@ -40,15 +40,22 @@
     height: 0;
   }
   to {
-    height: 400px;
+    height: 500px;
   }
 }
 
 @keyframes hide {
   from {
-    height: 400px;
+    height: 500px;
   }
   to {
     height: 0;
   }
 }
+
+@media screen and (min-width: 768px) {
+  .table {
+    font-size: 0.9em;
+  }
+}
+

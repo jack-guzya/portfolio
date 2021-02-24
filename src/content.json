@@ -1,0 +1,235 @@
+{
+  "home": {
+    "name": "Evgeniy Guzenkov",
+    "text": [
+      "Front-end Developer"
+    ]
+  },
+  "navigation": [
+    {
+      "id": "home",
+      "name": "Home"
+    },
+    {
+      "id": "about",
+      "name": "About"
+    },
+    {
+      "id": "skills",
+      "name": "Skills"
+    },
+    {
+      "id": "experience",
+      "name": "Experience"
+    }
+  ],
+  "about": {
+    "text": [
+      "I’m 27. I graduated from a technical university as a civil engineer. I like to design and create construction drawings. But one day I tried to write a simple JavaScript program and I couldn't stop. In my opinion, programming is a conditional design of \"buildings\", \"cities\", but it differs only in the implementation of the finished product. For example, microservices are created as “buildings” with their own internal infrastructure.",
+      "The more I learn JavaCript the more I like it, and amaze me. It gets a lot of interesting and cool features every year. For this reason, it pleases developers and new adherents of this programming language who want to feel its power :)",
+      "At the moment I am interested front-end (little back-end), but in the future I want to move on to back-end development. At the same time, it's a wish to try other server-side development languages (Java or Go).",
+      "There is a lot of interest in the Linux ecosystem and technical innovations. Most of all I regret that there are 24 hours in a day..."
+    ]
+  },
+  "experience": {
+    "list": [
+      {
+        "name": "EPAM Systems",
+        "main": [
+          "Dec 2020 - Present",
+          "Student",
+          {
+            "link": "https://www.epam.com",
+            "text": "https://www.epam.com"
+          }
+        ],
+        "description": [
+          "EPAM Systems, Inc. is an American company that specializes in product development, digital platform engineering, and digital and product design. The world's largest manufacturer of custom software, consulting specialist, resident of the Belarus High Technologies Park. The company's headquarters is located in Newtown, Pennsylvania, and its branches are represented in more than 30 countries of the world"
+        ],
+        "active": true
+      },
+      {
+        "name": "The Rolling Scopes School (Node.js)",
+        "main": [
+          "Sep 2020 - Nov 2020",
+          "Student",
+          {
+            "link": "https://rs.school",
+            "text": "https://rs.school"
+          }
+        ],
+        "description": [
+          "RS School the free courses conducted by The Rolling Scopes developer community since 2013. Developers from different companies and countries participate in the training."
+        ]
+      },
+      {
+        "name": "The Rolling Scopes School (React)",
+        "main": [
+          "Jul 2020 - Sep 2020",
+          "Student",
+          {
+            "link": "https://rs.school",
+            "text": "https://rs.school"
+          }
+        ],
+        "description": [
+          "RS School the free courses conducted by The Rolling Scopes developer community since 2013. Developers from different companies and countries participate in the training."
+        ]
+      },
+      {
+        "name": "The Rolling Scopes School (JS)",
+        "main": [
+          "Feb 2020 - Jul 2020",
+          "Student",
+          {
+            "link": "https://rs.school",
+            "text": "https://rs.school"
+          }
+        ],
+        "description": [
+          "RS School the free courses conducted by The Rolling Scopes developer community since 2013. Developers from different companies and countries participate in the training."
+        ]
+      }
+    ]
+  },
+  "skills": {
+    "main": [
+      {
+        "name": "JavaScript",
+        "rate": 75,
+        "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript"
+      },
+      {
+        "name": "TypeScript",
+        "rate": 50,
+        "link": "https://www.typescriptlang.org"
+      },
+      {
+        "name": "React",
+        "rate": 75,
+        "link": "https://reactjs.org"
+      },
+      {
+        "name": "Redux",
+        "rate": 75,
+        "link": "https://redux.js.org"
+      },
+      {
+        "name": "NodeJS",
+        "rate": 50,
+        "link": "https://nodejs.org/en/"
+      },
+      {
+        "name": "Express",
+        "rate": 60,
+        "link": "https://expressjs.com"
+      },
+      {
+        "name": "Webpack",
+        "rate": 70,
+        "link": "https://webpack.js.org"
+      },
+      {
+        "name": "Git",
+        "rate": 70,
+        "link": "https://git-scm.com/"
+      }
+    ],
+    "secondary": [
+      {
+        "title": "Software Development",
+        "list": [
+          "JavaScript",
+          "TypeScript",
+          "React",
+          "Redux",
+          "Node.js",
+          "Express.js",
+          "Jest"
+        ]
+      },
+      {
+        "title": "Software Engineering Techniques",
+        "list": [
+          "Functional Programming",
+          "Object-oriented Programming (OOP)"
+        ]
+      },
+      {
+        "title": "Database",
+        "list": [
+          "MongoDB"
+        ]
+      },
+      {
+        "title": "Module bundler",
+        "list": [
+          "Webpack"
+        ]
+      },
+      {
+        "title": "Version Control Systems",
+        "list": [
+          "Git",
+          "GitHub"
+        ]
+      },
+      {
+        "title": "Network technologies",
+        "list": [
+          "AJAX",
+          "CORS",
+          "WebSockets",
+          "REST"
+        ]
+      },
+      {
+        "title": "Styles",
+        "list": [
+          "CSS",
+          "SASS",
+          "LESS",
+          "BEM Methodology",
+          "Bootstrap",
+          "Material UI",
+          "Ant Design"
+        ]
+      },
+      {
+        "title": "Agile Software Development Methodologies",
+        "list": [
+          "Kanban",
+          "Scrum"
+        ]
+      },
+      {
+        "title": "Continuous Integration & Delivery tools",
+        "list": [
+          "GitHub Actions",
+          "Travis CI"
+        ]
+      },
+      {
+        "title": "Operating Systems",
+        "list": [
+          "Linux",
+          "Windows"
+        ]
+      },
+      {
+        "title": "Others",
+        "list": [
+          "Redux Form",
+          "Redux Thunk",
+          "Formik",
+          "React Router",
+          "RxJS",
+          "Canvas",
+          "Bash",
+          "Lodash",
+          "ESlint"
+        ]
+      }
+    ]
+  }
+}

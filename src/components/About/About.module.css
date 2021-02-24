@@ -1,24 +1,14 @@
-.wrapper {
-  background-color: var(--color-bg-primary);
-}
-
-.title {
-  color: var(--color-bg-secondary);
-}
-
 .details {
-  animation: show 1s ease-out 0s 1 normal forwards;
+  animation: show 2s ease 0s 1 normal forwards;
   margin-bottom: 40px;
   line-height: 1.8;
 }
 
 @keyframes show {
   from {
-    transform: translateY(30%);
     opacity: 0;
   }
   to {
-    transform: translateY(0);
     opacity: 1;
   }
 }

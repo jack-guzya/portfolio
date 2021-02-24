@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
-import SecondarySkills from '.';
+import { SecondarySkills } from './Secondary';
 import s from './Secondary.module.css';
 
 const data = [
@@ -33,10 +33,10 @@ describe('SecondarySkills component', () => {
     clickButton();
 
     expect(queryTable()).toBeInTheDocument();
-  
+
     clickButton();
     fireEvent.animationEnd(document.querySelector(`.${s.container}`) as Element);
-    
+
     expect(queryTable()).not.toBeInTheDocument();
   });
 

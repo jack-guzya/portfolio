@@ -1,12 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './styles/index.css';
-import App from './App';
+import { App } from './App';
+import { WithWindowLoader } from './hoc/With-Window-loader';
 import reportWebVitals from './config/reportWebVitals';
+
+const AppWithLoader = WithWindowLoader(App);
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <AppWithLoader />
   </React.StrictMode>,
   document.getElementById('root'),
 );

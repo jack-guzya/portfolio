@@ -4,3 +4,34 @@
   top: 0;
   width: 100%;
 }
+
+.home {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(#00000000 95%, var(--color-bg-primary) 100%);
+  text-shadow: 1px 1px 1px #000000;
+  font-size: 25px;
+  font-weight: 400;
+  color: #ffffff;
+}
+
+.about,
+.experience{
+  background-color: var(--color-bg-primary);
+}
+
+.about__title,
+.experience__title {
+  color: var(--color-bg-secondary);
+}
+
+.skills {
+  background-color: var(--color-bg-secondary);
+}
+
+.skills__title {
+  color: var(--color-bg-primary);
+}

@@ -38,7 +38,7 @@
 
 .circleBg {
   fill: none;
-  stroke: var(--color-bg-secondary);
+  stroke: var(--color-bg-third);
   stroke-width: 3;
 }
 
