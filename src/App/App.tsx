@@ -25,17 +25,17 @@ export const App = () => {
           </Container>
         </Section>
 
-        <Section className={s.experience} id="experience">
-          <Container>
-            <Title className={s.experience__title}>Experience</Title>
-            <Experience content={experience} />
-          </Container>
-        </Section>
-
         <Section className={s.skills} id="skills">
           <Container>
             <Title className={s.skills__title}>Skills</Title>
             <Skills content={skills} />
+          </Container>
+        </Section>
+
+        <Section className={s.experience} id="experience">
+          <Container>
+            <Title className={s.experience__title}>Experience</Title>
+            <Experience content={experience} />
           </Container>
         </Section>
       </main>

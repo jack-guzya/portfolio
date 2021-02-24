@@ -19,19 +19,19 @@
 }
 
 .about,
-.skills {
+.experience{
   background-color: var(--color-bg-primary);
 }
 
 .about__title,
-.skills__title {
+.experience__title {
   color: var(--color-bg-secondary);
 }
 
-.experience {
+.skills {
   background-color: var(--color-bg-secondary);
 }
 
-.experience__title {
+.skills__title {
   color: var(--color-bg-primary);
 }

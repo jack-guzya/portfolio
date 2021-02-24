@@ -15,18 +15,20 @@
       "name": "About"
     },
     {
-      "id": "experience",
-      "name": "Experience"
-    },
-    {
       "id": "skills",
       "name": "Skills"
+    },
+    {
+      "id": "experience",
+      "name": "Experience"
     }
   ],
   "about": {
     "text": [
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Est laudantium quaerat sed dolores distinctio ducimus molestias quidem totam, vitae corrupti fugit porro voluptatem repellendus dolore tempore, quasi nesciunt, ullam accusantium.",
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Est laudantium quaerat sed dolores distinctio ducimus molestias quidem totam, vitae corrupti fugit porro voluptatem repellendus dolore tempore, quasi nesciunt, ullam accusantium."
+      "I’m 27. I graduated from a technical university as a civil engineer. I like to design and create construction drawings. But one day I tried to write a simple JavaScript program and I couldn't stop. In my opinion, programming is a conditional design of \"buildings\", \"cities\", but it differs only in the implementation of the finished product. For example, microservices are created as “buildings” with their own internal infrastructure.",
+      "The more I learn JavaCript the more I like it, and amaze me. It gets a lot of interesting and cool features every year. For this reason, it pleases developers and new adherents of this programming language who want to feel its power :)",
+      "At the moment I am interested front-end (little back-end), but in the future I want to move on to back-end development. At the same time, it's a wish to try other server-side development languages (Java or Go).",
+      "There is a lot of interest in the Linux ecosystem and technical innovations. Most of all I regret that there are 24 hours in a day..."
     ]
   },
   "experience": {
@@ -98,11 +100,11 @@
       },
       {
         "name": "TypeScript",
-        "rate": 55
+        "rate": 50
       },
       {
         "name": "React",
-        "rate": 60
+        "rate": 75
       },
       {
         "name": "Redux",
@@ -129,24 +131,95 @@
       {
         "title": "Software Development",
         "list": [
-          "Express JS",
-          "MongoDB",
-          "Node.js"
+          "JavaScript",
+          "TypeScript",
+          "React",
+          "Redux",
+          "Node.js",
+          "Express.js",
+          "Jest"
+        ]
+      },
+      {
+        "title": "Software Engineering Techniques",
+        "list": [
+          "Functional Programming",
+          "Object-oriented Programming (OOP)"
+        ]
+      },
+      {
+        "title": "Database",
+        "list": [
+          "MongoDB"
+        ]
+      },
+      {
+        "title": "Module bundler",
+        "list": [
+          "Webpack"
+        ]
+      },
+      {
+        "title": "Version Control Systems",
+        "list": [
+          "Git",
+          "GitHub"
+        ]
+      },
+      {
+        "title": "Network technologies",
+        "list": [
+          "AJAX",
+          "CORS",
+          "WebSockets",
+          "REST"
+        ]
+      },
+      {
+        "title": "Styles",
+        "list": [
+          "CSS",
+          "SASS",
+          "LESS",
+          "BEM Methodology",
+          "Bootstrap",
+          "Material UI",
+          "Ant Design"
+        ]
+      },
+      {
+        "title": "Agile Software Development Methodologies",
+        "list": [
+          "Kanban",
+          "Scrum"
+        ]
+      },
+      {
+        "title": "Continuous Integration & Delivery tools",
+        "list": [
+          "GitHub Actions",
+          "Travis CI"
+        ]
+      },
+      {
+        "title": "Operating Systems",
+        "list": [
+          "Linux",
+          "Windows"
         ]
       },
       {
         "title": "Others",
         "list": [
-          "OOP",
-          "JWT",
-          "Git",
-          "GitHub",
-          "Kanban",
-          "Scrum",
-          "AJAX",
-          "Python",
-          "MS Word",
-          "Redux"
+          "Redux Form",
+          "Redux Thunk",
+          "Formik",
+          "React Router",
+          "RxJS",
+          "Canvas",
+          "Bash",
+          "Lodash",
+          "ESlint"
         ]
       }
     ]
